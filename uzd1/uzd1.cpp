@@ -18,7 +18,8 @@ using std::sort;
 struct studentas 
 {
     string vardas, pavarde;
-    float nd[6];
+    int nd_kiek;
+    float *nd;
     float egz;
     float galutinis_vid, galutinis_med;
 };
@@ -28,17 +29,20 @@ int mediana(float pazymiai[]);
 
 int main()
 {
-    //cout << "Áveskite studentø skaièiø: ";
-    //int n;
+    cout << "Iveskite studentu skaiciu: ";
+    int n, x;
     float suma=0;
-    //cin >> n;
-    studentas grupe[3];  //pakeist i std::vector
-    for (int i = 0; i < 3; i++)
+    cin >> n;
+    studentas *grupe = new studentas[n];  //pakeist i std::vector
+    for (int i = 0; i < n; i++)
     {
         cout << "Iveskite " << i + 1 << " -o studento varda ir pavarde : ";
         cin >> grupe[i].vardas >> grupe[i].pavarde;
         suma = 0;
-        for (int j = 0; j < 6; j++)
+        cout << "Iveskite "<< i + 1 << " -o studento namu darbu kieki : ";
+        cin >> x;
+        grupe[i].nd = new float[x];
+        for (int j = 0; j < x; j++)
         {
             cout << "Iveskite " << j + 1 << "-o namu darbo pazymi: ";
             cin >> grupe[i].nd[j];
@@ -48,10 +52,12 @@ int main()
         cin >> grupe[i].egz;
         grupe[i].galutinis_vid = 0.4 * suma / 5. + 0.6 * grupe[i].egz;
         grupe[i].galutinis_med = 0.4 * mediana(grupe[i].nd) + 0.6 * grupe[i].egz;
+        delete[] grupe[i].nd;
 
     }
     
-    student_print(grupe, 3);
+    student_print(grupe, n);
+    delete[] grupe;
 }
 
 void student_print(studentas grupe[], int sk)
@@ -63,7 +69,7 @@ void student_print(studentas grupe[], int sk)
     for (int i = 0; i < sk; i++) 
     {
         cout << setw(20) << left << grupe[i].vardas << setw(20) << left << grupe[i].pavarde
-             << setw(20) << left << grupe[i].egz << setw(20) << setprecision(3) << left << grupe[i].galutinis_vid
+             << setw(20) << setprecision(3) << left << grupe[i].galutinis_vid
              << setw(20) << setprecision(3) << left << grupe[i].galutinis_med << endl;
     }
    
