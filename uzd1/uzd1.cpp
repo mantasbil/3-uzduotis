@@ -32,8 +32,17 @@ int main()
     cout << "Iveskite studentu skaiciu: ";
     int n, x;
     float suma=0;
+    string input_type;
     cin >> n;
-    studentas *grupe = new studentas[n];  //pakeist i std::vector
+    studentas *grupe = new studentas[n];
+    cout << "Jei norite, kad studentu pazymiai butu generuojami automatiskai spauskite \"R\".\n Jei norite pazymius suvesti pats spauskite \"P\".";
+    cin >> input_type;
+    while (input_type != "R" && input_type != "r" && input_type != "P" && input_type != "p")
+    {
+        cout << "Netinkamas simbolis. Bandykite is naujo. ";
+        cin >> input_type;
+    }
+    
     for (int i = 0; i < n; i++)
     {
         cout << "Iveskite " << i + 1 << " -o studento varda ir pavarde : ";
@@ -42,15 +51,39 @@ int main()
         cout << "Iveskite "<< i + 1 << " -o studento namu darbu kieki : ";
         cin >> x;
         grupe[i].nd = new float[x];
-        for (int j = 0; j < x; j++)
+        if (input_type == "R" || input_type == "r")
         {
-            cout << "Iveskite " << j + 1 << "-o namu darbo pazymi: ";
-            cin >> grupe[i].nd[j];
-            suma += grupe[i].nd[j];
+            for (int j = 0; j < x; j++) 
+            { 
+                grupe[i].nd[j] = rand() % 10 + 1; 
+                cout << grupe[i].nd[j];
+                suma += grupe[i].nd[j];
+            }
+            grupe[i].egz = rand() % 10 + 1;
         }
-        cout << "Iveskite " << i + 1 << "-o studento egzamino pazymi : ";
-        cin >> grupe[i].egz;
-        grupe[i].galutinis_vid = 0.4 * suma / 5. + 0.6 * grupe[i].egz;
+        else if (input_type == "P" || input_type == "p") 
+        {
+            for (int j = 0; j < x; j++)
+            {
+                cout << "Iveskite " << j + 1 << "-o namu darbo pazymi: ";
+                cin >> grupe[i].nd[j];
+                while (grupe[i].nd[j] < 1 || grupe[i].nd[j] > 10)
+                {
+                    cout << "Pazymys turi buti nuo 1 iki 10. Bandykite is naujo: ";
+                    cin >> grupe[i].nd[j];
+                }
+                suma += grupe[i].nd[j];
+            }
+            cout << "Iveskite " << i + 1 << "-o studento egzamino pazymi : ";
+            cin >> grupe[i].egz;
+            while (grupe[i].egz < 1 || grupe[i].egz > 10)
+            {
+                cout << "Egzamino ivertinimas turi buti nuo 1 iki 10. Bandykite is naujo: ";
+                cin >> grupe[i].egz;
+            }
+        }
+        
+        grupe[i].galutinis_vid = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
         grupe[i].galutinis_med = 0.4 * mediana(grupe[i].nd) + 0.6 * grupe[i].egz;
         delete[] grupe[i].nd;
 
@@ -62,7 +95,6 @@ int main()
 
 void student_print(studentas grupe[], int sk)
 {
-    //int kiek = sizeof(grupe) / sizeof(grupe[0]);
     cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(vid.)" 
          << setw(20) << left << "Galutinis(med.)" << endl;
     cout << "--------------------------------------------------------------------------" << endl;
@@ -86,13 +118,3 @@ int mediana(float pazymiai[])
 
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
