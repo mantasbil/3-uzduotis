@@ -5,6 +5,8 @@
 #include <iomanip>
 #include <string>
 #include <algorithm>
+#include <time.h>
+#include <numeric>
 
 using std::cout;
 using std::cin;
@@ -14,6 +16,7 @@ using std::endl;
 using std::setprecision;
 using std::left;
 using std::sort;
+using std::accumulate;
 
 struct studentas 
 {
@@ -21,18 +24,21 @@ struct studentas
     int nd_kiek;
     float *nd;
     float egz;
-    float galutinis_vid, galutinis_med;
+    float galutinis;
 };
 
-void student_print(studentas grupe[], int sk);
-int mediana(float pazymiai[]);
+void student_print(studentas grupe[], int sk, string type);
+float mediana(float pazymiai[], int size);
+bool is_alphabetic(string& vardas);
 
 int main()
 {
+    srand(time(NULL));
+    
     cout << "Iveskite studentu skaiciu: ";
-    int n, x;
-    float suma=0;
-    string input_type;
+    int n, x, counter;
+    float suma=0., temp_paz;
+    string input_type, galutinis_type;
     cin >> n;
     studentas *grupe = new studentas[n];
     cout << "Jei norite, kad studentu pazymiai butu generuojami automatiskai spauskite \"R\".\n Jei norite pazymius suvesti pats spauskite \"P\".";
@@ -47,12 +53,23 @@ int main()
     {
         cout << "Iveskite " << i + 1 << " -o studento varda ir pavarde : ";
         cin >> grupe[i].vardas >> grupe[i].pavarde;
-        suma = 0;
-        cout << "Iveskite "<< i + 1 << " -o studento namu darbu kieki : ";
+        while (is_alphabetic(grupe[i].vardas) == false)
+        {
+            cout << "Varde turi buti tik raides. Iveskite varda is naujo: ";
+            cin >> grupe[i].vardas;
+        }
+        while (is_alphabetic(grupe[i].pavarde) == false)
+        {
+            cout << "Pavardeje turi buti tik raides. Iveskite varda is naujo: ";
+            cin >> grupe[i].pavarde;
+        }
+        cout << "Iveskite " << i + 1 << " -o studento namu darbu kieki : ";
         cin >> x;
+        suma = 0;
         grupe[i].nd = new float[x];
         if (input_type == "R" || input_type == "r")
         {
+            
             for (int j = 0; j < x; j++) 
             { 
                 grupe[i].nd[j] = rand() % 10 + 1; 
@@ -69,7 +86,7 @@ int main()
                 cin >> grupe[i].nd[j];
                 while (grupe[i].nd[j] < 1 || grupe[i].nd[j] > 10)
                 {
-                    cout << "Pazymys turi buti nuo 1 iki 10. Bandykite is naujo: ";
+                   cout << "Pazymys turi buti nuo 1 iki 10. Bandykite is naujo: ";
                     cin >> grupe[i].nd[j];
                 }
                 suma += grupe[i].nd[j];
@@ -83,38 +100,69 @@ int main()
             }
         }
         
-        grupe[i].galutinis_vid = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
-        grupe[i].galutinis_med = 0.4 * mediana(grupe[i].nd) + 0.6 * grupe[i].egz;
+        cout << "Jei norite, kad galutinis mazymys butu skaiciuojamas pagal namu darbu vidurki, spauskite V.\nJei norite, kad butu skaiciuojamas pagal mediana spauskite M.";
+        cin >> galutinis_type;
+        while (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m")
+        {
+            cout << "Netinkamas simbolis. Bandykite is naujo: ";
+            cin >> galutinis_type;
+        }
+        if (galutinis_type == "V" || galutinis_type == "v")
+        {
+            grupe[i].galutinis = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
+        }
+
+        if (galutinis_type == "M" || galutinis_type == "m")
+        {
+            grupe[i].galutinis = 0.4 * mediana(grupe[i].nd, x) + 0.6 * grupe[i].egz;
+        }
+                
         delete[] grupe[i].nd;
 
     }
     
-    student_print(grupe, n);
+    student_print(grupe, n, galutinis_type);
     delete[] grupe;
 }
 
-void student_print(studentas grupe[], int sk)
+void student_print(studentas grupe[], int sk, string type)
 {
-    cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(vid.)" 
-         << setw(20) << left << "Galutinis(med.)" << endl;
-    cout << "--------------------------------------------------------------------------" << endl;
-    for (int i = 0; i < sk; i++) 
+    if (type == "V" || type == "v")
     {
-        cout << setw(20) << left << grupe[i].vardas << setw(20) << left << grupe[i].pavarde
-             << setw(20) << setprecision(3) << left << grupe[i].galutinis_vid
-             << setw(20) << setprecision(3) << left << grupe[i].galutinis_med << endl;
+        cout << setw(30) << left << "Vardas" << setw(30) << left << "Pavarde" << setw(20) << left << "Galutinis(vid.)" << endl;
+        cout << "--------------------------------------------------------------------------" << endl;
+        for (int i = 0; i < sk; i++)
+        {
+            cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
+                << setw(20) << setprecision(3) << left << grupe[i].galutinis << endl;
+        }
+    }
+    else if (type == "M" || type == "m")
+    {
+        cout << setw(30) << left << "Vardas" << setw(30) << left << "Pavarde" << setw(20) << left << "Galutinis(med.)" << endl;
+        cout << "--------------------------------------------------------------------------" << endl;
+        for (int i = 0; i < sk; i++)
+        {
+            cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
+                << setw(20) << setprecision(3) << left << grupe[i].galutinis << endl;
+        }
     }
    
 }
 
-int mediana(float pazymiai[])
+float mediana(float pazymiai[], int size)
 {
     float median;
-    int n = sizeof(pazymiai) / sizeof(pazymiai[0]);
-    sort(pazymiai, pazymiai + n);
-    if (n % 2 == 0) median = (pazymiai[n / 2] + pazymiai[n / 2 + 1]) / 2.0;
-    else median = pazymiai[n / 2];
+    //int n = sizeof(pazymiai) / sizeof(pazymiai[0]);
+    sort(pazymiai, pazymiai + size);
+    if (size % 2 == 0) median = (pazymiai[size / 2] + pazymiai[size / 2 + 1]) / 2.0;
+    else median = pazymiai[size / 2];
     return median;
 
+}
+
+bool is_alphabetic(string& vardas)
+{
+    return std::all_of(vardas.begin(), vardas.end(), isalpha);
 }
 
