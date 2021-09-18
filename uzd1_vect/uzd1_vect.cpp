@@ -96,31 +96,35 @@ int main()
                 cin >> temp_student.egz;
             }
         }
-        
-        cout << "Jei norite, kad galutinis mazymys butu skaiciuojamas pagal namu darbu vidurki, spauskite V.\nJei norite, kad butu skaiciuojamas pagal mediana spauskite M.";
-        cin >> galutinis_type;
-        while (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m")
-        {
-            cout << "Netinkamas simbolis. Bandykite is naujo: ";
-            cin >> galutinis_type;
-        }
-        if (galutinis_type == "V" || galutinis_type == "v")
-        {
-            vid = accumulate(temp_student.nd.begin(), temp_student.nd.end(), 0.0) / temp_student.nd.size();
-            temp_student.galutinis = 0.4 * vid + 0.6 * temp_student.egz;
-        }
-        
-        if (galutinis_type == "M" || galutinis_type == "m")
-        {
-            med = mediana(temp_student.nd);
-            temp_student.galutinis = 0.4 * med + 0.6 * temp_student.egz;
-        }
-        
         grupe.push_back(temp_student);
         temp_student.nd.clear();
-
     }
 
+    cout << "Jei norite, kad galutinis mazymys butu skaiciuojamas pagal namu darbu vidurki, spauskite V.\nJei norite, kad butu skaiciuojamas pagal mediana spauskite M.";
+    cin >> galutinis_type;
+    while (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m")
+    {
+        cout << "Netinkamas simbolis. Bandykite is naujo: ";
+        cin >> galutinis_type;
+    }
+    if (galutinis_type == "V" || galutinis_type == "v")
+    {
+        for (int s = 0; s < n; s++)
+        {
+            vid = accumulate(grupe[s].nd.begin(), grupe[s].nd.end(), 0.0) / grupe[s].nd.size();
+            grupe[s].galutinis = 0.4 * vid + 0.6 * grupe[s].egz;
+        }
+    }
+
+    if (galutinis_type == "M" || galutinis_type == "m")
+    {
+        for (int s = 0; s < n; s++)
+        {
+            med = mediana(grupe[s].nd);
+            grupe[s].galutinis = 0.4 * med + 0.6 * grupe[s].egz;
+        }
+        
+    }
     student_print(grupe, n, galutinis_type);
 }
 
