@@ -49,6 +49,14 @@ int main()
         cin >> input_type;
     }
     
+    cout << "Jei norite, kad galutinis pazymys butu skaiciuojamas pagal namu darbu vidurki, spauskite V.\nJei norite, kad butu skaiciuojamas pagal mediana spauskite M.";
+    cin >> galutinis_type;
+    while (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m")
+    {
+        cout << "Netinkamas simbolis. Bandykite is naujo: ";
+        cin >> galutinis_type;
+    }
+    
     for (int i = 0; i < n; i++)
     {
         cout << "Iveskite " << i + 1 << " -o studento varda ir pavarde : ";
@@ -99,26 +107,16 @@ int main()
                 cin >> grupe[i].egz;
             }
         }
-        
-        cout << "Jei norite, kad galutinis mazymys butu skaiciuojamas pagal namu darbu vidurki, spauskite V.\nJei norite, kad butu skaiciuojamas pagal mediana spauskite M.";
-        cin >> galutinis_type;
-        while (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m")
-        {
-            cout << "Netinkamas simbolis. Bandykite is naujo: ";
-            cin >> galutinis_type;
-        }
         if (galutinis_type == "V" || galutinis_type == "v")
         {
             grupe[i].galutinis = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
         }
-
         if (galutinis_type == "M" || galutinis_type == "m")
         {
             grupe[i].galutinis = 0.4 * mediana(grupe[i].nd, x) + 0.6 * grupe[i].egz;
-        }
-                
-        delete[] grupe[i].nd;
 
+        }
+        delete[] grupe[i].nd;
     }
     
     student_print(grupe, n, galutinis_type);
