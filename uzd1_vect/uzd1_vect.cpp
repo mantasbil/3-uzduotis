@@ -57,7 +57,7 @@ int main()
             cout << "Varde turi buti tik raides. Iveskite varda is naujo: ";
             cin >> temp_student.vardas;
         }
-        while (is_alphabetic(temp_student.vardas) == false)
+        while (is_alphabetic(temp_student.pavarde) == false)
         {
             cout << "Pavardeje turi buti tik raides. Iveskite varda is naujo: ";
             cin >> temp_student.pavarde;
