@@ -38,6 +38,11 @@ int main()
     float suma=0., temp_paz;
     string input_type, galutinis_type;
     cin >> n;
+    while (n <= 0)
+    {
+        cout << "Studentu skaicius turi buti didesnis uz 0. Bandykite is naujo.";
+        cin >> n;
+    }
     studentas *grupe = new studentas[n];
     cout << "Jei norite, kad studentu pazymiai butu generuojami automatiskai spauskite \"R\".\n Jei norite pazymius suvesti pats spauskite \"P\".";
     cin >> input_type;
