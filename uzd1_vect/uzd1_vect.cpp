@@ -16,6 +16,7 @@ using std::left;
 using std::sort;
 using std::vector;
 using std::accumulate;
+using std::fixed;
 
 struct studentas
 {
@@ -33,14 +34,20 @@ bool is_alphabetic(string& vardas);
 int main()
 {
     srand(time(NULL));
-    int n, x, vardas_len, pavarde_len;
+    int n, x;
     float laik_paz, vid, med;
     string input_type, galutinis_type;
     studentas temp_student;
     cout << "Iveskite studentu skaiciu: ";
     cin >> n;
+    while (n < 0)
+    {
+        cout << "Studentu skaicius turi buti didesnis uz 0. Bandykite is naujo: ";
+        cin >> n;
+    }
     vector <studentas> grupe;
     grupe.reserve(n);
+    
     cout << "Jei norite, kad studentu pazymiai butu generuojami automatiskai spauskite \"R\".\nJei norite pazymius suvesti pats spauskite \"P\".";
     cin >> input_type;
     while (input_type != "R" && input_type != "r" && input_type != "P" && input_type != "p")
@@ -48,6 +55,7 @@ int main()
         cout << "Netinkamas simbolis. Bandykite is naujo. ";
         cin >> input_type;
     }
+    
     for (int i = 0; i < n; i++)
     {
         cout << "Iveskite " << i + 1 << " -o studento varda ir pavarde : ";
@@ -67,6 +75,12 @@ int main()
         {
             cout << "Iveskite " << i + 1 << " -o studento namu darbu kieki : ";
             cin >> x;
+            while (x <= 0)
+            {
+                cout << "Namu darbu kiekis privalo buti didesnis uz 0. Bandykite is naujo.";
+                cin >> x;
+            }
+            temp_student.nd.reserve(x);
             for (int j = 0; j < x; j++)
             {
                 temp_student.nd.push_back(rand() % 10 + 1);
@@ -85,6 +99,11 @@ int main()
                 else { temp_student.nd.push_back(laik_paz); };
                 
             }
+            if (temp_student.nd.empty())
+            {
+                cout << "Privaloma ávesti namø darbø rezultatus. Bandykite is naujo.";
+                return 1;
+            }
             cin.clear();
             cin.ignore(10000, '\n');
             
@@ -96,8 +115,10 @@ int main()
                 cin >> temp_student.egz;
             }
         }
+
         grupe.push_back(temp_student);
         temp_student.nd.clear();
+        
     }
 
     cout << "Jei norite, kad galutinis mazymys butu skaiciuojamas pagal namu darbu vidurki, spauskite V.\nJei norite, kad butu skaiciuojamas pagal mediana spauskite M.";
@@ -115,7 +136,6 @@ int main()
             grupe[s].galutinis = 0.4 * vid + 0.6 * grupe[s].egz;
         }
     }
-
     if (galutinis_type == "M" || galutinis_type == "m")
     {
         for (int s = 0; s < n; s++)
@@ -123,13 +143,14 @@ int main()
             med = mediana(grupe[s].nd);
             grupe[s].galutinis = 0.4 * med + 0.6 * grupe[s].egz;
         }
-        
     }
+
     student_print(grupe, n, galutinis_type);
 }
 
 void student_print(vector<studentas> grupe, int sk, string type)
 {
+    cout << endl;
     if (type == "V" || type == "v")
     {
         cout << setw(30) << left << "Vardas" << setw(30) << left << "Pavarde" << setw(20) << left << "Galutinis(vid.)" << endl;
@@ -137,7 +158,7 @@ void student_print(vector<studentas> grupe, int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << setprecision(3) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
         }
     }
     else if (type == "M" || type == "m")
@@ -147,7 +168,7 @@ void student_print(vector<studentas> grupe, int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << setprecision(3) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
         }
     }
     
