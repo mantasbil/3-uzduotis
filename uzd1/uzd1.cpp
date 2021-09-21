@@ -1,6 +1,3 @@
-// uzd1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -17,6 +14,7 @@ using std::setprecision;
 using std::left;
 using std::sort;
 using std::accumulate;
+using std::fixed;
 
 struct studentas 
 {
@@ -73,6 +71,11 @@ int main()
         }
         cout << "Iveskite " << i + 1 << " -o studento namu darbu kieki : ";
         cin >> x;
+        while (x <= 0)
+        {
+            cout << "Namu darbu kiekis turi buti didesnis uz 0. Bandykite is naujo: ";
+            cin >> x;
+        }
         suma = 0;
         grupe[i].nd = new float[x];
         if (input_type == "R" || input_type == "r")
@@ -81,7 +84,6 @@ int main()
             for (int j = 0; j < x; j++) 
             { 
                 grupe[i].nd[j] = rand() % 10 + 1; 
-                cout << grupe[i].nd[j];
                 suma += grupe[i].nd[j];
             }
             grupe[i].egz = rand() % 10 + 1;
@@ -125,6 +127,7 @@ int main()
 
 void student_print(studentas grupe[], int sk, string type)
 {
+    cout << endl;
     if (type == "V" || type == "v")
     {
         cout << setw(30) << left << "Vardas" << setw(30) << left << "Pavarde" << setw(20) << left << "Galutinis(vid.)" << endl;
@@ -132,7 +135,7 @@ void student_print(studentas grupe[], int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << setprecision(3) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
         }
     }
     else if (type == "M" || type == "m")
@@ -142,7 +145,7 @@ void student_print(studentas grupe[], int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << setprecision(3) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
         }
     }
    
@@ -151,7 +154,6 @@ void student_print(studentas grupe[], int sk, string type)
 float mediana(float pazymiai[], int size)
 {
     float median;
-    //int n = sizeof(pazymiai) / sizeof(pazymiai[0]);
     sort(pazymiai, pazymiai + size);
     if (size % 2 == 0) median = (pazymiai[size / 2] + pazymiai[size / 2 + 1]) / 2.0;
     else median = pazymiai[size / 2];
