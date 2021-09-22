@@ -5,8 +5,8 @@ Programa, kuri nuskaito studentų vardą ir pavardę, namų darbų rezultatus be
 ## v0.1
 
 Programa realizuota dviem būdais:
-- Studentai bei jų namų darbų rezultatai saugomi dinaminiuose masyvuose (uzd1.cpp).
-- Studentai bei jų namų darbų rezultatai saugomi vektoriuose (uzd1_vect.cpp).
+- Kiekvieno studento namų darbų įvertinimai ir informacija apie visus studentus (vardas, pavardė, namų darbų įvertinimai, egzamino įvertinimas, galutinis pažymys) saugomi dinaminiuose masyvuose (uzd1.cpp).
+-Kiekvieno studento namų darbų įvertinimai ir informacija apie visus studentus (vardas, pavardė, namų darbų įvertinimai, egzamino įvertinimas, galutinis pažymys) saugomi vektoriuose (uzd1_vect.cpp).
 
 Programos veikimas:
 1. Įvedamas studentų skaičius.
@@ -17,4 +17,12 @@ Programos veikimas:
    - Galutinis = 0.4 * namų_darbų_vidurkis + 0.6 * mediana
 5. Pasirenkama, ar į ekraną bus išvedamas galutinis pažymys, apskaičiuotas pagal namų darbų vidurkį, ar pagal medianą.
 6. Į ekraną išvedami visų įvestų studentų vardai ir pavardės kartu su jų galutiniu pažymiu, suapvalintu iki dviejų skaičių po kablelio.
+
+## v0.2
+
+Patobulinta v0.1 realizacija, naudojant vektorius. Išlaikytas visas v0.1 funkcionalumas, pridėta daugiau galimybių.
+
+Naujos galimybės:
+- Duomenų nuskaitymas iš failo. Failas, kuriame saugomi duomenys privalo vadintis "kursiokai.txt". Nuskaitant iš failo, visi studentai turi vienodą namų darbų kiekį.
+-
 
