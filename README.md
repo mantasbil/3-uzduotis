@@ -12,6 +12,9 @@ Programos veikimas:
 1. Įvedamas studentų skaičius.
 2. Įvedamas studento vardas ir pavardė. Tiek vardas, tiek pavardė turi susidėti tik iš raidžių.
 3. Pasirenkama, ar pažymiai bus įvedami vartotojo, ar generuojami automatiškai. Realizacijoje su dinamiu masyvu abiem atvejais reikia nurodyti turimų namų darbų skaičių, realizacijoje su vektoriumi namų darbų skaičių reikia įvesti tik pasirenkant automatinį pažymių generavimą, vedant pažymius ranka įvedamas stabdomas paspaudus bet kokį simbolį, kuris nėra skaičius. Privaloma įvesti bent vieną pažymį.
-4. Pasirenkama, ar galutinis pažymys bus skaičiuojamas pagal namų darbų įvertinimų vidurkį, ar pagal medianą.
-5. Į ekraną išvedami visų įvestų studentų vardai ir pavardės kartu su jų galutiniu pažymiu, suapvalintu iki dviejų skaičių po kablelio.
+4. Programa dviem būdais apskaičiuoja studento galutinį pažymį
+   - Galutinis = 0.4 * namų_darbų_vidurkis + 0.6 * egzaminas
+   - Galutinis = 0.4 * namų_darbų_vidurkis + 0.6 * mediana
+5. Pasirenkama, ar į ekraną bus išvedamas galutinis pažymys, apskaičiuotas pagal namų darbų vidurkį, ar pagal medianą.
+6. Į ekraną išvedami visų įvestų studentų vardai ir pavardės kartu su jų galutiniu pažymiu, suapvalintu iki dviejų skaičių po kablelio.
 
