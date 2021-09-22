@@ -24,7 +24,7 @@ struct studentas
     int nd_kiek;
     vector <float> nd;
     float egz;
-    float galutinis;
+    float galutinis_vid, galutinis_med;
 };
 
 void student_print(vector <studentas> grupe, int sk, string type);
@@ -86,6 +86,10 @@ int main()
                 temp_student.nd.push_back(rand() % 10 + 1);
             }
             temp_student.egz = rand() % 10 + 1;
+            vid = accumulate(temp_student.nd.begin(), temp_student.nd.end(), 0.0) / temp_student.nd.size();
+            temp_student.galutinis_vid = 0.4 * vid + 0.6 * temp_student.egz;
+            med = mediana(temp_student.nd);
+            temp_student.galutinis_med = 0.4 * med + 0.6 * temp_student.egz;
         }
         else if (input_type == "P" || input_type == "p")
         {
@@ -114,6 +118,10 @@ int main()
                 cout << "Egzamino ivertinimas turi buti nuo 1 iki 10. Bandykite is naujo: ";
                 cin >> temp_student.egz;
             }
+            vid = accumulate(temp_student.nd.begin(), temp_student.nd.end(), 0.0) / temp_student.nd.size();
+            temp_student.galutinis_vid = 0.4 * vid + 0.6 * temp_student.egz;
+            med = mediana(temp_student.nd);
+            temp_student.galutinis_med = 0.4 * med + 0.6 * temp_student.egz;
         }
 
         grupe.push_back(temp_student);
@@ -128,23 +136,6 @@ int main()
         cout << "Netinkamas simbolis. Bandykite is naujo: ";
         cin >> galutinis_type;
     }
-    if (galutinis_type == "V" || galutinis_type == "v")
-    {
-        for (int s = 0; s < n; s++)
-        {
-            vid = accumulate(grupe[s].nd.begin(), grupe[s].nd.end(), 0.0) / grupe[s].nd.size();
-            grupe[s].galutinis = 0.4 * vid + 0.6 * grupe[s].egz;
-        }
-    }
-    if (galutinis_type == "M" || galutinis_type == "m")
-    {
-        for (int s = 0; s < n; s++)
-        {
-            med = mediana(grupe[s].nd);
-            grupe[s].galutinis = 0.4 * med + 0.6 * grupe[s].egz;
-        }
-    }
-
     student_print(grupe, n, galutinis_type);
 }
 
@@ -158,7 +149,7 @@ void student_print(vector<studentas> grupe, int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis_vid << endl;
         }
     }
     else if (type == "M" || type == "m")
@@ -168,11 +159,9 @@ void student_print(vector<studentas> grupe, int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis_med << endl;
         }
     }
-    
-
 }
 
 float mediana(vector <float> pazymiai)
