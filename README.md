@@ -24,5 +24,5 @@ Patobulinta v0.1 realizacija, naudojant vektorius. Išlaikytas visas v0.1 funkci
 
 Naujos galimybės:
 - Duomenų nuskaitymas iš failo. Failas, kuriame saugomi duomenys privalo vadintis "kursiokai.txt". Nuskaitant iš failo, visi studentai turi vienodą namų darbų kiekį.
--
+- Studentai išvedami į ekraną pagal pavardes abėcėlės tvarka. Jei kelių studentų pavardės sutampa, jie vedami abėcėlės tvarka pagal vardą.
 
