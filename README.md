@@ -6,7 +6,7 @@ Programa, kuri nuskaito studentų vardą ir pavardę, namų darbų rezultatus be
 
 Programa realizuota dviem būdais:
 - Kiekvieno studento namų darbų įvertinimai ir informacija apie visus studentus (vardas, pavardė, namų darbų įvertinimai, egzamino įvertinimas, galutinis pažymys) saugomi dinaminiuose masyvuose (uzd1.cpp).
--Kiekvieno studento namų darbų įvertinimai ir informacija apie visus studentus (vardas, pavardė, namų darbų įvertinimai, egzamino įvertinimas, galutinis pažymys) saugomi vektoriuose (uzd1_vect.cpp).
+- Kiekvieno studento namų darbų įvertinimai ir informacija apie visus studentus (vardas, pavardė, namų darbų įvertinimai, egzamino įvertinimas, galutinis pažymys) saugomi vektoriuose (uzd1_vect.cpp).
 
 Programos veikimas:
 1. Įvedamas studentų skaičius.
