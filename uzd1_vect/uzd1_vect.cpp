@@ -34,7 +34,8 @@ struct studentas
 
 void student_print(vector <studentas> grupe, string type);
 float mediana(vector<float> pazymiai);
-bool is_alphabetic(string& vardas);
+bool is_alphabetic(string vardas);
+bool compare_alphabet(studentas a, studentas b);
 
 int main()
 {
@@ -208,6 +209,7 @@ int main()
 
 void student_print(vector<studentas> grupe, string type)
 {
+    sort(grupe.begin(), grupe.end(), compare_alphabet);
     cout << endl;
     if (type == "V" || type == "v")
     {
@@ -241,7 +243,13 @@ float mediana(vector <float> pazymiai)
     return median;
 }
 
-bool is_alphabetic(string& vardas)
+bool is_alphabetic(string vardas)
 {
     return std::all_of(vardas.begin(), vardas.end(), isalpha);
+}
+
+bool compare_alphabet(studentas a, studentas b)
+{
+    if (a.pavarde != b.pavarde) return a.pavarde < b.pavarde;
+    else return a.vardas < b.vardas;
 }
