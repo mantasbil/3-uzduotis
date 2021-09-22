@@ -22,7 +22,7 @@ struct studentas
     int nd_kiek;
     float *nd;
     float egz;
-    float galutinis;
+    float galutinis_vid, galutinis_med;
 };
 
 void student_print(studentas grupe[], int sk, string type);
@@ -92,6 +92,8 @@ int main()
                 suma += grupe[i].nd[j];
             }
             grupe[i].egz = rand() % 10 + 1;
+            grupe[i].galutinis_vid = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
+            grupe[i].galutinis_med = 0.4 * mediana(grupe[i].nd, x) + 0.6 * grupe[i].egz;
         }
         else if (input_type == "P" || input_type == "p") 
         {
@@ -113,15 +115,8 @@ int main()
                 cout << "Egzamino ivertinimas turi buti nuo 1 iki 10. Bandykite is naujo: ";
                 cin >> grupe[i].egz;
             }
-        }
-        if (galutinis_type == "V" || galutinis_type == "v")
-        {
-            grupe[i].galutinis = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
-        }
-        if (galutinis_type == "M" || galutinis_type == "m")
-        {
-            grupe[i].galutinis = 0.4 * mediana(grupe[i].nd, x) + 0.6 * grupe[i].egz;
-
+            grupe[i].galutinis_vid = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
+            grupe[i].galutinis_med = 0.4 * mediana(grupe[i].nd, x) + 0.6 * grupe[i].egz;
         }
         delete[] grupe[i].nd;
     }
@@ -140,7 +135,7 @@ void student_print(studentas grupe[], int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis_vid << endl;
         }
     }
     else if (type == "M" || type == "m")
@@ -150,7 +145,7 @@ void student_print(studentas grupe[], int sk, string type)
         for (int i = 0; i < sk; i++)
         {
             cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis << endl;
+                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis_med << endl;
         }
     }
    
