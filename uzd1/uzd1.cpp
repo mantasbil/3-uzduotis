@@ -13,7 +13,6 @@ using std::endl;
 using std::setprecision;
 using std::left;
 using std::sort;
-using std::accumulate;
 using std::fixed;
 
 struct studentas 
@@ -34,8 +33,8 @@ int main()
     srand(time(NULL));
     
     cout << "Iveskite studentu skaiciu: ";
-    int n, x, counter;
-    float suma=0., temp_paz;
+    int n, x;
+    float suma=0.;
     string input_type, galutinis_type;
     cin >> n;
     while (n <= 0)
