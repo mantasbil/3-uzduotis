@@ -11,7 +11,7 @@ Programa realizuota dviem būdais:
 Programos veikimas:
 1. Įvedamas studentų skaičius.
 2. Įvedamas studento vardas ir pavardė. Tiek vardas, tiek pavardė turi susidėti tik iš raidžių.
-3. Pasirenkama, ar pažymiai bus įvedami vartotojo, ar generuojami automatiškai. Realizacijoje su dinamiu masyvu abiem atvejais reikia nurodyti turimų namų darbų skaičių, realizacijoje su vektoriumi namų darbų skaičių reikia įvesti tik pasirenkant automatinį pažymių generavimą, vedant pažymius ranka įvedamas stabdomas paspaudus bet kokį simbolį, kuris nėra skaičius. Privaloma įvesti bent vieną pažymį.
+3. Pasirenkama, ar pažymiai bus įvedami vartotojo, ar generuojami automatiškai. Realizacijoje su dinamiu masyvu abiem atvejais reikia nurodyti turimų namų darbų skaičių, realizacijoje su vektoriumi namų darbų skaičių reikia įvesti tik pasirenkant automatinį pažymių generavimą, vedant pažymius ranka įvedimas stabdomas paspaudus bet kokį simbolį, kuris nėra skaičius. Privaloma įvesti bent vieną pažymį.
 4. Programa dviem būdais apskaičiuoja studento galutinį pažymį
    - Galutinis = 0.4 * namų_darbų_vidurkis + 0.6 * egzaminas
    - Galutinis = 0.4 * namų_darbų_vidurkis + 0.6 * mediana
