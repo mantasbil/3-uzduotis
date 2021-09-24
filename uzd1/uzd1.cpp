@@ -33,7 +33,7 @@ int main()
     srand(time(NULL));
     
     cout << "Iveskite studentu skaiciu: ";
-    int n, x;
+    int n, x, nd_kiek=1;
     float suma=0.;
     string input_type, galutinis_type;
     cin >> n;
@@ -73,18 +73,19 @@ int main()
             cout << "Pavardeje turi buti tik raides. Iveskite varda is naujo: ";
             cin >> grupe[i].pavarde;
         }
-        cout << "Iveskite " << i + 1 << " -o studento namu darbu kieki : ";
-        cin >> x;
-        while (x <= 0)
-        {
-            cout << "Namu darbu kiekis turi buti didesnis uz 0. Bandykite is naujo: ";
-            cin >> x;
-        }
+        
         suma = 0;
-        grupe[i].nd = new float[x];
+        
         if (input_type == "R" || input_type == "r")
         {
-            
+            cout << "Iveskite " << i + 1 << " -o studento namu darbu kieki : ";
+            cin >> x;
+            while (x <= 0)
+            {
+                cout << "Namu darbu kiekis turi buti didesnis uz 0. Bandykite is naujo: ";
+                cin >> x;
+            }
+            grupe[i].nd = new float[x];
             for (int j = 0; j < x; j++) 
             { 
                 grupe[i].nd[j] = rand() % 10 + 1; 
@@ -96,16 +97,36 @@ int main()
         }
         else if (input_type == "P" || input_type == "p") 
         {
-            for (int j = 0; j < x; j++)
+            grupe[i].nd = new float[nd_kiek];
+            cout << "Iveskite " << i + 1 << " -o studento namu darbu pazymius. Baige iveskite -1: ";
+            for (int k = 0; k < nd_kiek; k++)
             {
-                cout << "Iveskite " << j + 1 << "-o namu darbo pazymi: ";
-                cin >> grupe[i].nd[j];
-                while (grupe[i].nd[j] < 1 || grupe[i].nd[j] > 10)
+                
+                cin >> grupe[i].nd[k];
+                if (grupe[i].nd[k] == -1) break;
+                while (grupe[i].nd[k] < 1 || grupe[i].nd[k] > 10)
                 {
-                   cout << "Pazymys turi buti nuo 1 iki 10. Bandykite is naujo: ";
-                    cin >> grupe[i].nd[j];
+                    cout << "Pazymys turi buti nuo 1 iki 10. Bandykite is naujo: ";
+                    cin >> grupe[i].nd[k];
                 }
-                suma += grupe[i].nd[j];
+                
+                float* temp = new float[nd_kiek + 1];
+                for (int j = 0; j < nd_kiek; j++)
+                {
+                    temp[j] = grupe[i].nd[j];
+                }
+                delete[](grupe[i].nd);
+                nd_kiek += 1;
+                grupe[i].nd = new float[nd_kiek];
+                for (int j = 0; j < nd_kiek; j++)
+                {
+                   grupe[i].nd[j] = temp[j];
+                }
+                delete[](temp);
+            }
+            for (int z = 0; z < nd_kiek; z++)
+            {
+                suma += grupe[i].nd[z];
             }
             cout << "Iveskite " << i + 1 << "-o studento egzamino pazymi : ";
             cin >> grupe[i].egz;
@@ -114,8 +135,8 @@ int main()
                 cout << "Egzamino ivertinimas turi buti nuo 1 iki 10. Bandykite is naujo: ";
                 cin >> grupe[i].egz;
             }
-            grupe[i].galutinis_vid = 0.4 * suma / float(x) + 0.6 * grupe[i].egz;
-            grupe[i].galutinis_med = 0.4 * mediana(grupe[i].nd, x) + 0.6 * grupe[i].egz;
+            grupe[i].galutinis_vid = 0.4 * suma / float(nd_kiek) + 0.6 * grupe[i].egz;
+            grupe[i].galutinis_med = 0.4 * mediana(grupe[i].nd, nd_kiek) + 0.6 * grupe[i].egz;
         }
         delete[] grupe[i].nd;
     }
