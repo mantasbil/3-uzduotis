@@ -139,7 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="compare_alphabet.cpp" />
+    <ClCompile Include="is_alphabetic.cpp" />
+    <ClCompile Include="mediana.cpp" />
+    <ClCompile Include="studentas.cpp" />
+    <ClCompile Include="student_print.cpp" />
     <ClCompile Include="uzd1_vect.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="compare_alphabet.h" />
+    <ClInclude Include="is_alphabetic.h" />
+    <ClInclude Include="mediana.h" />
+    <ClInclude Include="studentas.h" />
+    <ClInclude Include="student_print.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

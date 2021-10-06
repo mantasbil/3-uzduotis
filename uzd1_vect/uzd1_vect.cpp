@@ -7,39 +7,29 @@
 #include <numeric>
 #include <fstream>
 #include <sstream> 
+#include <random>
+#include "studentas.h"
+#include "mediana.h"
+#include "is_alphabetic.h"
+#include "compare_alphabet.h"
+#include "student_print.h"
 
 using std::cout;
 using std::cin;
 using std::string;
-using std::setw;
 using std::endl;
-using std::setprecision;
-using std::left;
-using std::sort;
 using std::vector;
 using std::accumulate;
-using std::fixed;
 using std::ifstream;
 using std::getline;
 using std::stringstream;
 
-struct studentas
-{
-    string vardas, pavarde;
-    int nd_kiek;
-    vector <float> nd;
-    float egz;
-    float galutinis_vid, galutinis_med;
-};
-
-void student_print(vector <studentas> grupe, string type);
-float mediana(vector<float> pazymiai);
-bool is_alphabetic(string vardas);
-bool compare_alphabet(studentas a, studentas b);
 
 int main()
 {
-    srand(time(NULL));
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<int> dist(1, 10);
     float vid, med;
     string input_type, galutinis_type, read_type;
     studentas temp_student;
@@ -61,7 +51,7 @@ int main()
         if (open_f.fail())
         {
             cout << "Nepavyko atidaryti failo";
-            return 0;
+            exit(1);
         }
         while (open_f)
         {
@@ -85,6 +75,7 @@ int main()
                         return 0;
                     }
                     else temp_student.nd.push_back(temp_paz);
+                
                 }
                 open_f >> temp_student.egz;
                 vid = accumulate(temp_student.nd.begin(), temp_student.nd.end(), 0.0) / temp_student.nd.size();
@@ -148,9 +139,9 @@ int main()
                 temp_student.nd.reserve(x);
                 for (int j = 0; j < x; j++)
                 {
-                    temp_student.nd.push_back(rand() % 10 + 1);
+                    temp_student.nd.push_back(dist(mt));
                 }
-                temp_student.egz = rand() % 10 + 1;
+                temp_student.egz = dist(mt);
                 vid = accumulate(temp_student.nd.begin(), temp_student.nd.end(), 0.0) / temp_student.nd.size();
                 temp_student.galutinis_vid = 0.4 * vid + 0.6 * temp_student.egz;
                 med = mediana(temp_student.nd);
@@ -204,52 +195,6 @@ int main()
     }
 
     student_print(grupe, galutinis_type);
+    cin.get();
     
-}
-
-void student_print(vector<studentas> grupe, string type)
-{
-    sort(grupe.begin(), grupe.end(), compare_alphabet);
-    cout << endl;
-    if (type == "V" || type == "v")
-    {
-        cout << setw(30) << left << "Vardas" << setw(30) << left << "Pavarde" << setw(20) << left << "Galutinis(vid.)" << endl;
-        cout << "--------------------------------------------------------------------------" << endl;
-        for (int i = 0; i < grupe.size(); i++)
-        {
-            cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis_vid << endl;
-        }
-    }
-    else if (type == "M" || type == "m")
-    {
-        cout << setw(30) << left << "Vardas" << setw(30) << left << "Pavarde" << setw(20) << left << "Galutinis(med.)" << endl;
-        cout << "--------------------------------------------------------------------------" << endl;
-        for (int i = 0; i < grupe.size(); i++)
-        {
-            cout << setw(30) << left << grupe[i].vardas << setw(30) << left << grupe[i].pavarde
-                << setw(20) << fixed << setprecision(2) << left << grupe[i].galutinis_med << endl;
-        }
-    }   
-}
-
-float mediana(vector <float> pazymiai)
-{
-    float median;
-    int n = pazymiai.size();
-    sort(pazymiai.begin(), pazymiai.end());
-    if (n % 2 == 0) median = (pazymiai[n / 2] + pazymiai[n / 2 + 1]) / 2.0;
-    else median = pazymiai[n / 2];
-    return median;
-}
-
-bool is_alphabetic(string vardas)
-{
-    return std::all_of(vardas.begin(), vardas.end(), isalpha);
-}
-
-bool compare_alphabet(studentas a, studentas b)
-{
-    if (a.pavarde != b.pavarde) return a.pavarde < b.pavarde;
-    else return a.vardas < b.vardas;
 }
