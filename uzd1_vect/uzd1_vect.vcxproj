@@ -142,7 +142,6 @@
     <ClCompile Include="compare_alphabet.cpp" />
     <ClCompile Include="is_alphabetic.cpp" />
     <ClCompile Include="mediana.cpp" />
-    <ClCompile Include="studentas.cpp" />
     <ClCompile Include="student_print.cpp" />
     <ClCompile Include="uzd1_vect.cpp" />
   </ItemGroup>
