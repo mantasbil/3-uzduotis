@@ -26,7 +26,7 @@ Naujos galimybės:
 - Duomenų nuskaitymas iš failo. Failas, kuriame saugomi duomenys privalo vadintis "kursiokai.txt". Nuskaitant iš failo, visi studentai turi vienodą namų darbų kiekį.
 - Studentai išvedami į ekraną pagal pavardes abėcėlės tvarka. Jei kelių studentų pavardės sutampa, jie vedami abėcėlės tvarka pagal vardą.
 
-## v0.2
+## v0.3
 
 Kas naujo:
 - Patobulintas atsitiktinių pažymių generavimas (panaudota random biblioteka).
