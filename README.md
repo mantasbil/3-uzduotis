@@ -43,6 +43,6 @@ Kas naujo:
 4. Surūšiuoti duomenys surašomi į du atskirus failus.
 Matuojamas visų išvardintų veiksmų atlikimo laikas.
 Lentelėje pateiktas veiksmų atlikimo laikas sekundėmis (buvo matuojama 5 kartus ir apskaičiuotas vidurkis).
-| | 1000 įrašų | 10000 įrašų | 100000 įrašų | 1000000 įrašų | 10000000 įrašų|
+| Įrašū skaičius: | 1000 įrašų | 10000 įrašų | 100000 įrašų | 1000000 įrašų | 10000000 įrašų|
 |---|---|---|---|---|---|
 | Failo sukūrimas| 0.0149078 | 0.1488042 | 1.371526 | 11.066468 | 95.23038 |
