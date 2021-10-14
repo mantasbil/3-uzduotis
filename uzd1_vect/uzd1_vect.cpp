@@ -1,14 +1,11 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <algorithm>
 #include <vector>
-#include <time.h>
 #include <numeric>
 #include <fstream>
 #include <sstream> 
 #include <random>
-#include <chrono>
 #include "studentas.h"
 #include "mediana.h"
 #include "is_alphabetic.h"
@@ -74,7 +71,7 @@ int main()
                 if (read_type != "F" && read_type != "f" && read_type != "R" && read_type != "r") throw std::runtime_error("Neatpazinta komanda");
             }
             catch (std::runtime_error& e) {
-                cout << e.what();
+                cout << e.what() << endl;
                 cin.clear();
                 cout << "Pasirinkite F arba R ";
                 cin >> read_type;
@@ -91,7 +88,7 @@ int main()
                 if (open_f.fail()) throw std::runtime_error("Nepavyko atidaryti failo");
             }
             catch (std::runtime_error& e) {
-                cout << e.what();
+                cout << e.what() << endl;
                 exit(1);
             }
             while (open_f)
@@ -114,7 +111,7 @@ int main()
                             if (temp_paz < 1 || temp_paz > 10) throw std::runtime_error("Pazymiai turi buti nuo 1 iki 10. Patikrinkite faila");
                         }
                         catch (std::runtime_error& e) {
-                            cout << e.what();
+                            cout << e.what() << endl;
                             exit(1);
                         }
                         temp_student.nd.push_back(temp_paz);
@@ -124,7 +121,7 @@ int main()
                         if (temp_student.egz < 1 || temp_student.egz > 10) throw std::runtime_error("Egzamino pazymys turi buti nuo 1 iki 10. Patikrinkite faila");
                     }
                     catch (std::runtime_error& e) {
-                        cout << e.what();
+                        cout << e.what() << endl;
                         exit(1);
                     }
 
@@ -150,7 +147,7 @@ int main()
                     if (input_type != "R" && input_type != "r" && input_type != "P" && input_type != "p") throw std::runtime_error("Neatpazinta komanda");
                 }
                 catch (std::runtime_error& e) {
-                    cout << e.what();
+                    cout << e.what() << endl;
                     cin.clear();
                     cout << "Pasirinkite R arba P ";
                     cin >> input_type;
@@ -235,7 +232,7 @@ int main()
                     }
                     if (temp_student.nd.empty())
                     {
-                        cout << "Privaloma ávesti namø darbø rezultatus. Bandykite is naujo.";
+                        cout << "Privaloma ivesti namu darbu rezultatus.";
                         return 1; //Jei neivedami namu darbu pazymiai, programa stabdoma.
                     }
                     cin.clear();
@@ -244,7 +241,7 @@ int main()
                     cin >> temp_student.egz;
                     do {
                         try {
-                            if (temp_student.egz < 1 || temp_student.egz > 10) throw std::runtime_error("Pazymis turi buti nuo 1 iki 10");
+                            if (temp_student.egz < 1 || temp_student.egz > 10) throw std::runtime_error("Pazymys turi buti nuo 1 iki 10");
                         }
                         catch (std::runtime_error& e) {
                             cout << e.what() << endl;
