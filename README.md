@@ -41,6 +41,7 @@ Kas naujo:
 2. Studentų duomenys iš failo nuskaitomi į vektorių;
 3. Studentai surūšiuojami į atskirus vektorius pagal galutinį pažymį (jei pažymys <5, studentas įrašomas į vektorių "vargsiukai", jei >=5 - į vektorių "galvociai");
 4. Surūšiuoti duomenys surašomi į du atskirus failus.
+
 Matuojamas visų išvardintų veiksmų atlikimo laikas.
 Lentelėje pateiktas veiksmų atlikimo laikas sekundėmis (buvo matuojama 5 kartus ir apskaičiuotas vidurkis).
 
