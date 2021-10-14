@@ -44,8 +44,6 @@ Kas naujo:
 Matuojamas visų išvardintų veiksmų atlikimo laikas.
 Lentelėje pateiktas veiksmų atlikimo laikas sekundėmis (buvo matuojama 5 kartus ir apskaičiuotas vidurkis).
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Veiksmas | 1000 | 10000 | 100000 | 1000000 | 10000000 |
+| ----------- | ---- | ----- | ------ | ------- | -------- |
+| Failo sukūrimas | 0.0149078 s | 0.1488042 s | 1.371526 s | 11.066468 s | 95.23038 s |
