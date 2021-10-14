@@ -55,15 +55,15 @@ int main()
     } while (generate != "t" && generate != "T" && generate != "n" && generate != "N");
     if (generate == "T" || generate == "t")
     {
-        //test_file(1000);
+        test_file(1000);
 
-        //test_file(10000);
+        test_file(10000);
 
         test_file(100000);
 
-        //test_file(1000000);
+        test_file(1000000);
 
-        //test_file(10000000);
+        test_file(10000000);
     }
     if (generate == "N" || generate == "n")
     {
@@ -235,7 +235,7 @@ int main()
                     }
                     if (temp_student.nd.empty())
                     {
-                        cout << "Privaloma ávesti namø darbø rezultatus. Bandykite is naujo.";
+                        cout << "Privaloma Ã¡vesti namÃ¸ darbÃ¸ rezultatus. Bandykite is naujo.";
                         return 1; //Jei neivedami namu darbu pazymiai, programa stabdoma.
                     }
                     cin.clear();
