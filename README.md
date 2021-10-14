@@ -43,6 +43,7 @@ Kas naujo:
 4. Surūšiuoti duomenys surašomi į du atskirus failus.
 Matuojamas visų išvardintų veiksmų atlikimo laikas.
 Lentelėje pateiktas veiksmų atlikimo laikas sekundėmis (buvo matuojama 5 kartus ir apskaičiuotas vidurkis).
+
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
