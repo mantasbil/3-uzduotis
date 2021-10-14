@@ -143,6 +143,7 @@
     <ClCompile Include="is_alphabetic.cpp" />
     <ClCompile Include="mediana.cpp" />
     <ClCompile Include="student_print.cpp" />
+    <ClCompile Include="test_file.cpp" />
     <ClCompile Include="uzd1_vect.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="mediana.h" />
     <ClInclude Include="studentas.h" />
     <ClInclude Include="student_print.h" />
+    <ClInclude Include="test_file.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
