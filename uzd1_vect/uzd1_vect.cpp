@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <string>
 #include <vector>
 #include <numeric>
@@ -22,10 +21,6 @@ using std::accumulate;
 using std::ifstream;
 using std::getline;
 using std::stringstream;
-using std::ofstream;
-using std::to_string;
-
-void test_file(int kiekis);
 
 int main()
 {
@@ -88,7 +83,7 @@ int main()
                 if (open_f.fail()) throw std::runtime_error("Nepavyko atidaryti failo");
             }
             catch (std::runtime_error& e) {
-                cout << e.what() << endl;
+                cout << e.what() << endl;;
                 exit(1);
             }
             while (open_f)
@@ -232,7 +227,7 @@ int main()
                     }
                     if (temp_student.nd.empty())
                     {
-                        cout << "Privaloma ivesti namu darbu rezultatus.";
+                        cout << "Privaloma ivesti namu darbu rezultatus";
                         return 1; //Jei neivedami namu darbu pazymiai, programa stabdoma.
                     }
                     cin.clear();
