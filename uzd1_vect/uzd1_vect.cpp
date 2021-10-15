@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include <string>
 #include <algorithm>
 #include <vector>
 #include <numeric>
@@ -22,8 +21,6 @@ using std::accumulate;
 using std::ifstream;
 using std::getline;
 using std::stringstream;
-using std::ofstream;
-using std::to_string;
 
 int main()
 {
@@ -38,9 +35,9 @@ int main()
     cin >> read_type;
     do {
         try {
-            if (read_type != "F" && read_type != "f" && read_type != "R" && read_type != "r") throw std::runtime_error("Neatpazinta komanda");
+            if (read_type != "F" && read_type != "f" && read_type != "R" && read_type != "r") throw std::invalid_argument("Neatpazinta komanda");
         }
-        catch (std::runtime_error& e) {
+        catch (std::invalid_argument& e) {
             cout << e.what() << endl;
             cin.clear();
             cout << "Pasirinkite F arba R ";
@@ -110,9 +107,9 @@ int main()
         cin >> input_type;
         do {
             try {
-                if (input_type != "R" && input_type != "r" && input_type != "P" && input_type != "p") throw std::runtime_error("Neatpazinta komanda");
+                if (input_type != "R" && input_type != "r" && input_type != "P" && input_type != "p") throw std::invalid_argument("Neatpazinta komanda");
             }
-            catch (std::runtime_error& e) {
+            catch (std::invalid_argument& e) {
                 cout << e.what() << endl;
                 cin.clear();
                 cout << "Pasirinkite R arba P ";
@@ -125,9 +122,9 @@ int main()
         cin >> n;
         do {
             try {
-                if (n <= 0) throw std::runtime_error("Studentu turi buti daugiau nei 0");
+                if (n <= 0) throw std::invalid_argument("Studentu turi buti daugiau nei 0");
             }
-            catch (std::runtime_errort& e) {
+            catch (std::invalid_argument& e) {
                 cout << e.what() << endl;
                 cin.clear();
                 cout << "Iveskite studentu skaiciu ";
@@ -140,9 +137,9 @@ int main()
             cin >> temp_student.vardas >> temp_student.pavarde;
             do {
                 try {
-                    if (!is_alphabetic(temp_student.vardas) || !is_alphabetic(temp_student.pavarde)) throw std::runtime_error("Varde ir pavardeje turi buti tik raides");
+                    if (!is_alphabetic(temp_student.vardas) || !is_alphabetic(temp_student.pavarde)) throw std::invalid_argument("Varde ir pavardeje turi buti tik raides");
                 }
-                catch (std::runtime_error& e)
+                catch (std::invalid_argument& e)
                 {
                     cout << e.what() << endl;
                     cin.clear();
@@ -156,9 +153,9 @@ int main()
                 cin >> x;
                 do {
                     try {
-                        if (x <= 0) throw std::runtime_error("Namu darbu kiekis turi buti didesnis uz 0");
+                        if (x <= 0) throw std::invalid_argument("Namu darbu kiekis turi buti didesnis uz 0");
                     }
-                    catch (std::runtime_error& e) {
+                    catch (std::invalid_argument& e) {
                         cout << e.what() << endl;
                         cin.clear();
                         cout << "Iveskite nd kieki ";
@@ -185,9 +182,9 @@ int main()
                 {
                     do {
                         try {
-                            if (laik_paz < 1 || laik_paz > 10) throw std::runtime_error("Pazymys turi buti nuo 1 iki 10");
+                            if (laik_paz < 1 || laik_paz > 10) throw std::invalid_argument("Pazymys turi buti nuo 1 iki 10");
                         }
-                        catch (std::runtime_error& e) {
+                        catch (std::invalid_argument& e) {
                             cout << e.what() << endl;;
                             cin.clear();
                             cout << "Iveskite pazymi is naujo ";
@@ -198,7 +195,7 @@ int main()
                 }
                 if (temp_student.nd.empty())
                 {
-                    cout << "Privaloma ivesti namu darbu rezultatus. Bandykite is naujo.";
+                    cout << "Privaloma ivesti namu darbø rezultatus. Bandykite is naujo.";
                     return 1; //Jei neivedami namu darbu pazymiai, programa stabdoma.
                 }
                 cin.clear();
@@ -229,9 +226,9 @@ int main()
     cin >> galutinis_type;
     do {
         try {
-            if (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m") throw std::runtime_error("Neatpazinta komanda");
+            if (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m") throw std::invalid_argument("Neatpazinta komanda");
         }
-        catch (std::runtime_error& e) {
+        catch (std::invalid_argument& e) {
             cout << e.what() << endl;
             cin.clear();
             cout << "Pasirinkite V arba M ";
