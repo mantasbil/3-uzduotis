@@ -28,6 +28,7 @@ int main()
     std::mt19937 mt(rd());
     std::uniform_int_distribution<int> dist(1, 10);
     float vid, med;
+    int kiek;
     string input_type, galutinis_type, read_type, generate;
     studentas temp_student;
     vector <studentas> grupe;
@@ -47,15 +48,12 @@ int main()
     } while (generate != "t" && generate != "T" && generate != "n" && generate != "N");
     if (generate == "T" || generate == "t")
     {
-        test_file(1000);
+        cout<<"Iveskite studentu skaiciu: ";
+        cin >> kiek;
+        create_file(kiek);
+        list_test(kiek);
+        vector_test(kiek);
 
-        test_file(10000);
-
-        test_file(100000);
-
-        test_file(1000000);
-
-        test_file(10000000);
     }
     if (generate == "N" || generate == "n")
     {
@@ -269,9 +267,9 @@ int main()
         } while (galutinis_type != "V" && galutinis_type != "v" && galutinis_type != "M" && galutinis_type != "m");
         student_print(grupe, galutinis_type);
     }
-        
+
     cin.get();
-    
+
 }
 
 
