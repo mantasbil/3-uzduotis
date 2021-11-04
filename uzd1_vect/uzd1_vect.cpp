@@ -10,6 +10,7 @@
 #include "is_alphabetic.h"
 #include "compare_alphabet.h"
 #include "student_print.h"
+#include "rand_int.h"
 #include "test_file.h"
 
 using std::cout;
@@ -24,9 +25,6 @@ using std::stringstream;
 
 int main()
 {
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_int_distribution<int> dist(1, 10);
     float vid, med;
     int kiek;
     string input_type, galutinis_type, read_type, generate;
@@ -195,9 +193,9 @@ int main()
                     temp_student.nd.reserve(x);
                     for (int j = 0; j < x; j++)
                     {
-                        temp_student.nd.push_back(dist(mt));
+                        temp_student.nd.push_back(rand_int());
                     }
-                    temp_student.egz = dist(mt);
+                    temp_student.egz = rand_int();
                     vid = accumulate(temp_student.nd.begin(), temp_student.nd.end(), 0.0) / temp_student.nd.size();
                     temp_student.galutinis_vid = 0.4 * vid + 0.6 * temp_student.egz;
                     med = mediana(temp_student.nd);

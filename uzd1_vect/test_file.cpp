@@ -58,13 +58,16 @@ void list_write(list<studentas>& l, string file_name)
 
 void list_test(int kiekis)
 {
+    cout << endl;
     cout << "List strukturos rezultatai:" << endl;
     auto start1 = std::chrono::high_resolution_clock::now();
-    
+    studentas temp;
     list<studentas> studentai;
     list<studentas>::iterator it;
     it = studentai.begin();
     string eil;
+    string file_name1, file_name2;
+    int VargsiukuKiekis = 0, GalvociuKiekis = 0;
     ifstream openf("Studentai" + to_string(kiekis) + ".txt");
     try {
         if (openf.fail()) throw std::runtime_error("Nepavyko atidaryti failo");
@@ -76,7 +79,7 @@ void list_test(int kiekis)
     getline(openf, eil);
     for (int i = 0; i < kiekis; i++)
     {
-        studentas temp;
+        
         openf >> temp.vardas >> temp.pavarde >> temp.galutinis_vid;
         studentai.push_back(temp);
     }   
@@ -92,22 +95,14 @@ void list_test(int kiekis)
     list<studentas>::iterator varg_it;
     galv_it = galvociai.begin();
     varg_it = vargsiukai.begin();
-    while (it != studentai.end())
+    for (studentas& stud : studentai)
     {
-        if (it->galutinis_vid < 5)
+        if (stud.galutinis_vid < 5)
         {
-            varg_it->vardas = it->vardas;
-            varg_it->pavarde = it->vardas;
-            varg_it->galutinis_vid = it->galutinis_vid;
-            varg_it++;
+            vargsiukai.push_back(stud);
         }
         else
-        {
-            galv_it->vardas = it->vardas;
-            galv_it->pavarde = it->vardas;
-            galv_it->galutinis_vid = it->galutinis_vid;
-            galv_it++;
-        }
+            galvociai.push_back(stud);
     }
    
     studentai.clear();
@@ -115,20 +110,16 @@ void list_test(int kiekis)
     std::chrono::duration<double> diff2 = end2 - start2;
     cout << kiekis << " studentu suskirstymas i dvi grupes uztruko " << diff2.count() << " s" << endl;
 
-    
     string vargsiukai_file_name = "Vargsiukai" + to_string(kiekis) + "_list.txt";
     list_write(vargsiukai, vargsiukai_file_name);
-    vargsiukai.clear();
-
     string galvociai_file_name = "Galvociai" + to_string(kiekis) + "_list.txt";
     list_write(galvociai, galvociai_file_name);
-    galvociai.clear();
-    
 }
 
 
 void vector_test(int kiekis)
 {
+    cout << endl;
     cout << "Vector strukturos rezultatai:" << endl;
     auto start1 = std::chrono::high_resolution_clock::now();
 
@@ -160,10 +151,14 @@ void vector_test(int kiekis)
     
     galvociai.reserve(0.6 * kiekis);
     vargsiukai.reserve(0.6 * kiekis);
-    for (int i = 0; i < kiekis; i++)
+    for (studentas& stud : studentai)
     {
-        if (studentai[i].galutinis_vid < 5.) vargsiukai.push_back(studentai[i]);
-        else galvociai.push_back(studentai[i]);
+        if (stud.galutinis_vid < 5)
+        {
+            vargsiukai.push_back(stud);
+        }
+        else
+            galvociai.push_back(stud);
     }
 
     studentai.clear();
