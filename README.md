@@ -53,3 +53,25 @@ Lentelėje pateiktas veiksmų atlikimo laikas sekundėmis (buvo matuojama 5 kart
 | "Vargšiukų" įrašymas | 0.00661396 s | 0.08006498 s | 0.3971122 s | 4.079972 s | 36.68192 s |
 | "Galvočių" įrašymas | 0.01121306 s | 0.0791899 s | 0.5140312 s | 5.04828 s | 45.87368 s |
 | Visas testo laikas | 0.05541176 s | 0.4070714 s | 2.610388 s | 23.63446 s | 204.9688 s |
+
+## v0.5
+
+Atliktas Vector ir List struktūrų spartos palyginimas nuskaitant duomenis iš failo ir surūšiuojant juos.
+Lentelėse pateikti rezultatai (sparta buvo matuojama 5 kartus ir apskaičiuotas vidurkis).
+Sistemos parametrai: CPU - Intel Core i5-4200U @ 1.60GHz 2.30GHz; RAM - 8 GB; SSD - 512 GB
+
+- Duomenų nuskaitymas iš failo:
+
+| Struktūra | 1000 | 10000 | 100000 | 1000000 | 10000000 |
+| :-----------: | :----: | :-----: | :------: | :-------: | :--------: |
+| Vector | 0.0059696 s | 0.04333816 s | 0.3261778 s | 3.336214 s | 27.04606 s |
+| List | 0.01783284 s | 0.04746584 s | 0.3186326 s | 3.369412 s | 28.52392 s |
+
+- Studentų surūšiavimas į dvi grupes:
+
+| Struktūra | 1000 | 10000 | 100000 | 1000000 | 10000000 |
+| :-----------: | :----: | :-----: | :------: | :-------: | :--------: |
+| Vector | 0.0001387 s | 0.00108648 s | 0.00593302 s | 0.07769952 s | 0.586172 s |
+| List | 0.00055626 s | 0.00311996 s | 0.02979978 s | 0.3606842 s | 2.921546 s |
+
+Matome, kad duomenų nuskaitymo iš failo laikas naudojant skirtingas struktūras buvo gana panašus, tačiau duomenų rūšiavimas buvo gerokai spartesnis naudojant Vector struktūrą.
