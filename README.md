@@ -57,7 +57,9 @@ Lentelėje pateiktas veiksmų atlikimo laikas sekundėmis (buvo matuojama 5 kart
 ## v0.5
 
 Atliktas Vector ir List struktūrų spartos palyginimas nuskaitant duomenis iš failo ir surūšiuojant juos.
+
 Lentelėse pateikti rezultatai (sparta buvo matuojama 5 kartus ir apskaičiuotas vidurkis).
+
 Sistemos parametrai: CPU - Intel Core i5-4200U @ 1.60GHz 2.30GHz; RAM - 8 GB; SSD - 512 GB
 
 - Duomenų nuskaitymas iš failo:
