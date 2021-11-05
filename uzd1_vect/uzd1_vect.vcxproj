@@ -140,21 +140,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="compare_alphabet.cpp" />
+    <ClCompile Include="create_file.cpp" />
     <ClCompile Include="is_alphabetic.cpp" />
     <ClCompile Include="mediana.cpp" />
     <ClCompile Include="rand_int.cpp" />
     <ClCompile Include="student_print.cpp" />
     <ClCompile Include="test_file.cpp" />
     <ClCompile Include="uzd1_vect.cpp" />
+    <ClCompile Include="write_to_file.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="compare_alphabet.h" />
+    <ClInclude Include="create_file.h" />
     <ClInclude Include="is_alphabetic.h" />
     <ClInclude Include="mediana.h" />
     <ClInclude Include="rand_int.h" />
     <ClInclude Include="studentas.h" />
     <ClInclude Include="student_print.h" />
     <ClInclude Include="test_file.h" />
+    <ClInclude Include="write_to_file.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

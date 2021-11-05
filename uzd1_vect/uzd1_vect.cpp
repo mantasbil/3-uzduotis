@@ -11,6 +11,8 @@
 #include "compare_alphabet.h"
 #include "student_print.h"
 #include "rand_int.h"
+#include "create_file.h"
+#include "write_to_file.h"
 #include "test_file.h"
 
 using std::cout;
@@ -48,6 +50,17 @@ int main()
     {
         cout<<"Iveskite studentu skaiciu: ";
         cin >> kiek;
+        do {
+            try {
+                if (kiek <= 0) throw std::runtime_error("Skaicius turi buti didesnis uz 0");
+            }
+            catch (std::runtime_error& e) {
+                cout << e.what() << endl;
+                cin.clear();
+                cout << "Iveskite studentu skaiciu is naujo: ";
+                cin >> kiek;
+            }
+        } while (kiek <= 0);
         create_file(kiek);
         list_test(kiek);
         vector_test(kiek);

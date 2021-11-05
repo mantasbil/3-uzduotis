@@ -13,48 +13,6 @@ using std::ifstream;
 using std::vector;
 using std::list;
 
-void create_file(int kiekis)
-{
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_real_distribution<double> dist(1., 10.);
-    double galutinis_random;
-
-    string file_name = "Studentai" + to_string(kiekis) + ".txt";
-    ofstream outfile(file_name);
-    outfile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde" << left << setw(15) << "Galutinis" << endl;
-    for (int i = 1; i <= kiekis; i++)
-    {
-        galutinis_random = dist(mt);
-        outfile << left << setw(20) << "Vardas" + to_string(i)
-            << left << setw(20) << "Pavarde" + to_string(i)
-            << left << setw(20) << fixed << setprecision(2) << galutinis_random << endl;
-    }
-}
-
-void vector_write(vector<studentas>& v, string file_name)
-{
-    ofstream outfile(file_name);
-    outfile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde" << left << setw(15) << "Galutinis" << endl;
-    for (studentas s : v)
-    {
-        outfile << left << setw(20) << s.vardas
-            << left << setw(20) << s.pavarde
-            << left << setw(15) << s.galutinis_vid << endl;
-    }
-}
-
-void list_write(list<studentas>& l, string file_name)
-{
-    ofstream outfile(file_name);
-    outfile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde" << left << setw(15) << "Galutinis" << endl;
-    for (studentas s : l)
-    {
-        outfile << left << setw(20) << s.vardas
-            << left << setw(20) << s.pavarde
-            << left << setw(15) << s.galutinis_vid << endl;
-    }
-}
 
 void list_test(int kiekis)
 {
