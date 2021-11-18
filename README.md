@@ -88,3 +88,13 @@ Rūšiavimo laikai:
 | :-----------: | :----: | :-----: | :------: | :-------: | :--------: |
 | Vector | 0.0000555 s | 0.0004618 s | 0.0044573 s | 0.0541368 s | 0.437237 s |
 | List | 0.0001270 s | 0.0009704 s | 0.0188149 s | 0.2496906 s | 2.796786 s |
+
+# Visos programos veikimas
+
+1. Pasirenkama, ar bus automatiškai generuojamas failas ir matuojama jo nuskaitymo ir duomenų surūšiavimo į dvi grupes sparta. Jei taip, įvedamas norimas duomenų kiekis, programa sukuria failą su nurodytu skaičiumi studentų (faile saugomi studento vardas, pavardė ir galutinis balas), jį nuskaito, duomenis surūšiuoja į dvi grupes pagal galutinį balą (vargsiukai - jei galutinis balas žemesnis už 5, galvociai kitu atveju) ir gautus surūšiuotus duomenis išveda į du atskirus failus.
+2. Jei pasirenkama nematuoti spartos, prašoma pasirinkti, ar duomenys bus nuskaitomi iš failo, ar įvedami ranka.
+3. Jei pasirenkamas nuskaitymas iš failo, duomenys nuskaitomi iš failo, kurio pavadinimas privalo būti "kursiokai.txt" ir kuris privalo būti patalpintas toje pačioje direktorijoje kaip ir programa. Jei toks failas randamas, duomenys nuskaitomi į vektorių ir dviem būdais suskaičiuojamas galutinis pažymys - pagal namų darbų pažymių vidurkį ir pagal medianą.
+4. Jei pasirenkamas įvedimas ranka, prašoma pasirinkti, ar namų darbų ir egzamino pažymiai bus įvedami ranka, ar generuojami automatiškai.
+5. Abiem atvejais įvedamas studentų kiekis; Prašoma įvesti studento vardą ir pavardę. Pasirinkus automatinį generavimą kiekvienam studentui reikia įvesti namų darbų pažymių kiekį, pasirinkus rankinį įvedimą veiksmas stabdomas įvedus bet kokį simbolį, kuris nėra skaičius. Abiem atvejais kiekvieno studento galutinis pažymys suskaičiuojamas dviem būdais - pagal namų darbų pažymių vidurkį ir pagal medianą.
+6. Prašoma pasirinkti, kokio tipo galutinis balas bus išvedamas į ekraną.
+7. Į ekraną išvedamas studentų sąrašas, surūšiuotas abėcėlės tvarka pagal pavardes, su pasirinkto tipo galutiniais pažymiais.
