@@ -67,14 +67,14 @@ Sistemos parametrai: CPU - Intel Core i5-4200U @ 1.60GHz 2.30GHz; RAM - 8 GB; SS
 | Struktūra | 1000 | 10000 | 100000 | 1000000 | 10000000 |
 | :-----------: | :----: | :-----: | :------: | :-------: | :--------: |
 | Vector | 0.0059696 s | 0.04333816 s | 0.3261778 s | 3.336214 s | 27.04606 s |
-| List | 0.01783284 s | 0.04746584 s | 0.3186326 s | 3.369412 s | 28.52392 s |
+| List | 0.0178328 s | 0.04746584 s | 0.3186326 s | 3.369412 s | 28.52392 s |
 
 - Studentų surūšiavimas į dvi grupes:
 
 | Struktūra | 1000 | 10000 | 100000 | 1000000 | 10000000 |
 | :-----------: | :----: | :-----: | :------: | :-------: | :--------: |
-| Vector | 0.0001387 s | 0.00108648 s | 0.00593302 s | 0.07769952 s | 0.586172 s |
-| List | 0.00055626 s | 0.00311996 s | 0.02979978 s | 0.3606842 s | 2.921546 s |
+| Vector | 0.0001387 s | 0.00108648 s | 0.00593302 s | 0.0776995 s | 0.586172 s |
+| List | 0.0005563 s | 0.00311996 s | 0.02979978 s | 0.3606842 s | 2.921546 s |
 
 Matome, kad duomenų nuskaitymo iš failo laikas naudojant skirtingas struktūras buvo gana panašus, tačiau duomenų rūšiavimas buvo gerokai spartesnis naudojant Vector struktūrą.
 
