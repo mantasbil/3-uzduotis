@@ -61,7 +61,8 @@ int main()
                 cin >> kiek;
             }
         } while (kiek <= 0);
-        create_file(kiek);
+        
+        //create_file(kiek);
         list_test(kiek);
         vector_test(kiek);
 
