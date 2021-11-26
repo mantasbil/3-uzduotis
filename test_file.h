@@ -9,7 +9,5 @@
 #include <algorithm>
 #include "studentas.h"
 #include "write_to_file.h"
-#include "sort.h"
 
-void list_test(int kiekis);
-void vector_test(int kiekis);
+void test(int kiekis);

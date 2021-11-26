@@ -9,26 +9,14 @@ using std::setw;
 using std::list;
 using std::endl;
 
-void vector_write(vector<studentas>& v, string file_name)
+void write(vector<Studentas>& v, string file_name)
 {
     ofstream outfile(file_name);
     outfile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde" << left << setw(15) << "Galutinis" << endl;
-    for (studentas s : v)
+    for (Studentas s : v)
     {
-        outfile << left << setw(20) << s.vardas
-            << left << setw(20) << s.pavarde
-            << left << setw(15) << s.galutinis_vid << endl;
-    }
-}
-
-void list_write(list<studentas>& l, string file_name)
-{
-    ofstream outfile(file_name);
-    outfile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde" << left << setw(15) << "Galutinis" << endl;
-    for (studentas s : l)
-    {
-        outfile << left << setw(20) << s.vardas
-            << left << setw(20) << s.pavarde
-            << left << setw(15) << s.galutinis_vid << endl;
+        outfile << left << setw(20) << s.getVardas()
+            << left << setw(20) << s.getPavarde()
+            << left << setw(15) << s.getGalutinis() << endl;
     }
 }

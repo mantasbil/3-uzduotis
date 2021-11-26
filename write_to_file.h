@@ -7,5 +7,4 @@
 #include <iostream>
 #include <iomanip>
 
-void vector_write(std::vector<studentas>& v, std::string file_name);
-void list_write(std::list<studentas>& l, std::string file_name);
+void write(std::vector<Studentas>& v, std::string file_name);
