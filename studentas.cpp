@@ -9,17 +9,30 @@ using std::left;
 using std::fixed;
 using std::setprecision;
 
-/*std::istream& Studentas::readStudent(std::istream& in, int n) {
+std::istream& Studentas::readStudent(std::istream& in, int n) {
 	int paz;
+	Studentas stud;
 	in >> vardas >> pavarde;
+	stud.setVardas(vardas);
+	stud.setPavarde(pavarde);
 	nd.clear();
 	nd.reserve(n);
 	for (int i = 0; i < n; i++) {
 		in >> paz;
 		nd.push_back(paz);
 	}
+	stud.setNd(nd);
 	in >> egzaminas;
-}*/
+	stud.setEgzaminas(egzaminas);
+}
+
+std::istream& Studentas::readStudent(std::istream& in) {
+	Studentas stud;
+	in >> vardas >> pavarde >> galutinis;
+	stud.setVardas(vardas);
+	stud.setPavarde(pavarde);
+	stud.setGalutinis(galutinis);
+}
 
 double vidurkis(vector<double> pazymiai) {
 	if (pazymiai.size() == 0) throw std::exception("Namu darbu kiekis turi buti didesnis uz 0");

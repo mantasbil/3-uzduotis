@@ -1,13 +1,12 @@
 #include <iostream>
+#include<iomanip>
 #include <string>
 #include <vector>
 #include <fstream>
 #include <sstream> 
 #include <random>
 #include "studentas.h"
-#include "create_file.h"
-#include "write_to_file.h"
-#include "test_file.h"*/
+#include "test_file.h"
 #include "rand_int.h"
 
 using std::cout;
@@ -93,7 +92,10 @@ int main()
             int rows = 0, cols = 0;
             float temp_paz;
             string eil, item;
+            string eilut;
+            std::stringstream buff;
             ifstream open_f("kursiokai.txt");
+            
             try {
                 if (open_f.fail()) throw std::runtime_error("Nepavyko atidaryti failo");
             }
@@ -101,52 +103,26 @@ int main()
                 cout << e.what() << endl;;
                 exit(1);
             }
-            while (open_f)
+            buff << open_f.rdbuf();
+            open_f.close();
+            while (buff)
             {
-                if (!open_f.eof())
+                if (!buff.eof())
                 {
-                    getline(open_f, eil);
+                    getline(buff, eil);
                     rows++;
                     if (rows == 1)
                     {
                         stringstream ss(eil);
                         while (ss >> item) cols++;
                     }
-                    open_f >> vardas >> pavarde;
-                    temp_student.setVardas(vardas);
-                    temp_student.setPavarde(pavarde);
-                    nd.reserve(cols - 3);
-                    for (int j = 0; j < cols - 3; j++)
-                    {
-                        open_f >> temp_paz;
-                        try {
-                            if (temp_paz < 1 || temp_paz > 10) throw std::runtime_error("Pazymiai turi buti nuo 1 iki 10. Patikrinkite faila");
-                        }
-                        catch (std::runtime_error& e) {
-                            cout << e.what() << endl;
-                            exit(1);
-                        }
-                        nd.push_back(temp_paz);
-                    }
-                    temp_student.setNd(nd);
-                    open_f >> egz;
-                    try {
-                        if (egz < 1 || egz > 10) throw std::runtime_error("Egzamino pazymys turi buti nuo 1 iki 10. Patikrinkite faila");
-                    }
-                    catch (std::runtime_error& e) {
-                        cout << e.what() << endl;
-                        exit(1);
-                    }
-                    temp_student.setEgzaminas(egz);
+                    temp_student.readStudent(buff, cols-3);
                     gal = galutinis(temp_student, galutinis_type);
                     temp_student.setGalutinis(gal);
-                    grupe.push_back(temp_student);
-                    nd.clear();
+                    grupe.push_back(temp_student); 
                 }
                 else break;
             }
-
-            open_f.close();
         }
 
         if (read_type == "R" || read_type == "r")

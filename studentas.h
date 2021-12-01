@@ -26,7 +26,7 @@ class Studentas {
         double galutinis;
     public:
         Studentas() : egzaminas(0) {};
-        //Studentas(std::istream& is);
+        Studentas(std::istream& is);
         const string getVardas() const { return vardas; }
         const string getPavarde() const { return pavarde; }
         double getEgzaminas() const { return egzaminas; }
@@ -37,7 +37,8 @@ class Studentas {
         void setEgzaminas(double e) { egzaminas = e; }
         void setNd(vector<double> n) { nd = n; }
         void setGalutinis(double g) { galutinis = g; }
-        //std::istream& readStudent(std::istream&, int);
+        std::istream& readStudent(std::istream&, int);
+        std::istream& readStudent(std::istream&);
 };
 
 double vidurkis(vector<double>);
