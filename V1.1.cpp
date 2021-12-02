@@ -20,7 +20,6 @@ using std::stringstream;
 
 int main()
 {
-    float vid, med;
     int kiek;
     string input_type, galutinis_type, read_type, generate, vardas, pavarde;
     Studentas temp_student;
@@ -90,9 +89,7 @@ int main()
         if (read_type == "F" || read_type == "f")
         {
             int rows = 0, cols = 0;
-            float temp_paz;
             string eil, item;
-            string eilut;
             std::stringstream buff;
             ifstream open_f("kursiokai.txt");
             
