@@ -24,6 +24,7 @@ std::istream& Studentas::readStudent(std::istream& in, int n) {
 	stud.setNd(nd);
 	in >> egzaminas;
 	stud.setEgzaminas(egzaminas);
+	return in;
 }
 
 std::istream& Studentas::readStudent(std::istream& in) {
@@ -32,6 +33,7 @@ std::istream& Studentas::readStudent(std::istream& in) {
 	stud.setVardas(vardas);
 	stud.setPavarde(pavarde);
 	stud.setGalutinis(galutinis);
+	return in;
 }
 
 Studentas& Studentas::operator=(const Studentas& s) {

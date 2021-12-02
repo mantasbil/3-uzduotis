@@ -45,7 +45,7 @@ class Studentas {
             else return vardas < s.getVardas();
         }
 
-        bool operator>(const Studentas& s) {
+        bool operator>(const Studentas& s) const {
             if (pavarde != s.getPavarde())
                 return pavarde > s.getPavarde();
             else return vardas > s.getVardas();
