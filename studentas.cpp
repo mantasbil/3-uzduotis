@@ -37,12 +37,12 @@ std::istream& Studentas::readStudent(std::istream& in) {
 }
 
 double vidurkis(vector<double> pazymiai) {
-	if (pazymiai.size() == 0) throw std::exception("Namu darbu kiekis turi buti didesnis uz 0");
+	if (pazymiai.size() == 0) throw std::domain_error("Namu darbu kiekis turi buti didesnis uz 0");
 	return std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0) / pazymiai.size();
 }
 
 double mediana(vector<double> pazymiai) {
-	if (pazymiai.size() == 0) throw std::exception("Namu darbu kiekis turi buti didesnis uz 0");
+	if (pazymiai.size() == 0) throw std::domain_error("Namu darbu kiekis turi buti didesnis uz 0");
 	float median;
 	int n = pazymiai.size();
 	std::sort(pazymiai.begin(), pazymiai.end());
