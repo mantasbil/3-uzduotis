@@ -8,15 +8,6 @@
 using std::string;
 using std::vector;
 
-/*struct studentas
-{
-    std::string vardas, pavarde;
-    int nd_kiek;
-    std::vector <float> nd;
-    float egz;
-    float galutinis_vid, galutinis_med;
-};*/
-
 class Studentas {
     private:
         std::string vardas;
@@ -25,8 +16,16 @@ class Studentas {
         std::vector<double> nd;
         double galutinis;
     public:
-        Studentas() : egzaminas(0) {};
-        Studentas(std::istream& is);
+        Studentas() {};
+        ~Studentas() {};
+        Studentas(const Studentas& s) {
+            vardas = s.vardas;
+            pavarde = s.pavarde;
+            nd = s.nd;
+            egzaminas = s.egzaminas;
+            galutinis = s.galutinis;
+        }
+        Studentas& operator=(const Studentas& s);
         const string getVardas() const { return vardas; }
         const string getPavarde() const { return pavarde; }
         double getEgzaminas() const { return egzaminas; }
@@ -39,6 +38,42 @@ class Studentas {
         void setGalutinis(double g) { galutinis = g; }
         std::istream& readStudent(std::istream&, int);
         std::istream& readStudent(std::istream&);
+
+        bool operator<(const Studentas& s) const {
+            if (pavarde != s.getPavarde())
+                return pavarde < s.getPavarde();
+            else return vardas < s.getVardas();
+        }
+
+        bool operator>(const Studentas& s) {
+            if (pavarde != s.getPavarde())
+                return pavarde > s.getPavarde();
+            else return vardas > s.getVardas();
+        }
+
+        bool operator<(const double x) const {
+            return galutinis < x;
+        }
+
+        bool operator>(const double x) const {
+            return galutinis > x;
+        }
+
+        bool operator<=(const double x) const {
+            return galutinis <= x;
+        }
+
+        bool operator>=(const double x) const {
+            return galutinis >= x;
+        }
+
+        bool operator==(const double x) const {
+            return galutinis == x;
+        }
+
+        bool operator!=(const double x) const {
+            return galutinis != x;
+        }
 };
 
 double vidurkis(vector<double>);

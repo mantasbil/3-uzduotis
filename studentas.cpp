@@ -34,6 +34,16 @@ std::istream& Studentas::readStudent(std::istream& in) {
 	stud.setGalutinis(galutinis);
 }
 
+Studentas& Studentas::operator=(const Studentas& s) {
+	if (&s == this) return *this;
+	vardas = s.vardas;
+	pavarde = s.pavarde;
+	nd = s.nd;
+	egzaminas = s.egzaminas;
+	galutinis = s.galutinis;
+	return *this;
+}
+
 double vidurkis(vector<double> pazymiai) {
 	if (pazymiai.size() == 0) throw std::exception("Namu darbu kiekis turi buti didesnis uz 0");
 	return std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0) / pazymiai.size();
@@ -57,8 +67,7 @@ double galutinis(Studentas a, string type) {
 }
 
 bool compare_alphabet(const Studentas& a, const Studentas& b) {
-	if (a.getPavarde() != b.getPavarde()) return a.getPavarde() < b.getPavarde();
-	else return a.getVardas() < b.getVardas();
+	return a < b;
 }
 
 bool is_alphabetic(string x) {
@@ -82,5 +91,5 @@ bool compare_mark(const Studentas& a, const Studentas& b) {
 }
 
 bool islaike(const Studentas& a) {
-	return a.getGalutinis() >= 5;
+	return a >= 5;
 }

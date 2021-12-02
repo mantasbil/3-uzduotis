@@ -75,13 +75,12 @@ void test(int kiekis)
     {
         i.readStudent(buff);
     }
-    //openf.close();
+    
     auto end1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff1 = end1 - start1;
     cout << "Failo su " << kiekis << " studentu nuskaitymas uztruko " << diff1.count() << " s" << endl;
 
     vector<Studentas> vargsiukai;
-    //vargsiukai.reserve(0.6 * kiekis);
     std::sort(studentai.begin(), studentai.end(), compare_mark);
     auto start2 = std::chrono::high_resolution_clock::now();
     vector<Studentas>::iterator it = std::find_if(studentai.begin(), studentai.end(), islaike);
