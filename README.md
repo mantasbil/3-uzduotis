@@ -24,3 +24,8 @@ Rūšiavimo laikai:
 | Class | 0.0042335 s | 0.0451156 s |
 
 Rūšiavimas buvo šiek tiek greitesnis naudojant klasę.
+
+## v1.2
+
+- Klasėje 'Studentas' realizuota 'Rule of three', t.y., pridėtas destruktorius, kopijavimo konstruktorius ir priskyrimo operatorius.
+- Realizuoti palyginimo operatoriai, galintys palyginti dviejų studentų pavardes arba vardus, ir operatoriai, galintys palyginti vieno studento galutinį pažymį su kokiu nors skaičiumi.
