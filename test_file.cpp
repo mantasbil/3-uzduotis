@@ -49,14 +49,12 @@ void write(vector<Studentas>& v, string file_name)
 
 void test(int kiekis)
 {
-    int strat;
     cout << endl;
     cout << "Vector strukturos rezultatai:" << endl;
     auto start1 = std::chrono::high_resolution_clock::now();
     Studentas temp;
     vector<Studentas> studentai;
     string vard, pav;
-    double gal;
     studentai.resize(kiekis);
     string eil;
     ifstream openf("Studentai" + to_string(kiekis) + ".txt");
@@ -81,7 +79,7 @@ void test(int kiekis)
     cout << "Failo su " << kiekis << " studentu nuskaitymas uztruko " << diff1.count() << " s" << endl;
 
     vector<Studentas> vargsiukai;
-    std::sort(studentai.begin(), studentai.end(), compare_mark);
+    std::sort(studentai.begin(), studentai.end());
     auto start2 = std::chrono::high_resolution_clock::now();
     vector<Studentas>::iterator it = std::find_if(studentai.begin(), studentai.end(), islaike);
     vargsiukai = vector<Studentas>(studentai.begin(), it);

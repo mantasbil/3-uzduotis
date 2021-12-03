@@ -18,13 +18,7 @@ class Studentas {
     public:
         Studentas() {};
         ~Studentas() {};
-        Studentas(const Studentas& s) {
-            vardas = s.vardas;
-            pavarde = s.pavarde;
-            nd = s.nd;
-            egzaminas = s.egzaminas;
-            galutinis = s.galutinis;
-        }
+        Studentas(const Studentas& s);
         Studentas& operator=(const Studentas& s);
         const string getVardas() const { return vardas; }
         const string getPavarde() const { return pavarde; }
@@ -40,15 +34,27 @@ class Studentas {
         std::istream& readStudent(std::istream&);
 
         bool operator<(const Studentas& s) const {
-            if (pavarde != s.getPavarde())
-                return pavarde < s.getPavarde();
-            else return vardas < s.getVardas();
+            return galutinis < s.galutinis;
         }
 
         bool operator>(const Studentas& s) const {
-            if (pavarde != s.getPavarde())
-                return pavarde > s.getPavarde();
-            else return vardas > s.getVardas();
+            return galutinis > s.galutinis;
+        }
+
+        bool operator<=(const Studentas& s) const {
+            return galutinis <= s.galutinis;
+        }
+
+        bool operator>=(const Studentas& s) const {
+            return galutinis >= s.galutinis;
+        }
+
+        bool operator==(const Studentas& s) const {
+            return galutinis == s.galutinis;
+        }
+
+        bool operator!=(const Studentas& s) const {
+            return galutinis != s.galutinis;
         }
 
         bool operator<(const double x) const {

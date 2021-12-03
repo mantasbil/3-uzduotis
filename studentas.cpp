@@ -9,6 +9,14 @@ using std::left;
 using std::fixed;
 using std::setprecision;
 
+Studentas::Studentas(const Studentas& s) {
+	vardas = s.vardas;
+	pavarde = s.pavarde;
+	nd = s.nd;
+	egzaminas = s.egzaminas;
+	galutinis = s.galutinis;
+}
+
 std::istream& Studentas::readStudent(std::istream& in, int n) {
 	int paz;
 	Studentas stud;
@@ -69,7 +77,8 @@ double galutinis(Studentas a, string type) {
 }
 
 bool compare_alphabet(const Studentas& a, const Studentas& b) {
-	return a < b;
+	if (a.getPavarde() != b.getPavarde()) return a.getPavarde() < b.getPavarde();
+	else return a.getVardas() < b.getVardas();
 }
 
 bool is_alphabetic(string x) {
@@ -86,10 +95,6 @@ void student_print(vector<Studentas> grupe) {
 		cout << setw(30) << left << grupe[i].getVardas() << setw(30) << left << grupe[i].getPavarde()
 			<< setw(20) << fixed << setprecision(2) << left << grupe[i].getGalutinis() << endl;
 	}
-}
-
-bool compare_mark(const Studentas& a, const Studentas& b) {
-	return a.getGalutinis() < b.getGalutinis();
 }
 
 bool islaike(const Studentas& a) {
