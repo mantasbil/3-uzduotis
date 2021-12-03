@@ -131,4 +131,4 @@ Rūšiavimas buvo greičiausias naudojant O2 flag'ą.
 ## v1.2
 
 - Klasėje 'Studentas' realizuota 'Rule of three', t.y., pridėtas destruktorius, kopijavimo konstruktorius ir priskyrimo operatorius.
-- Realizuoti palyginimo operatoriai, galintys palyginti dviejų studentų galutinius pažymįius arba vieno studento galutinį pažymį su skaičiumi.
+- Realizuoti palyginimo operatoriai, galintys palyginti dviejų studentų galutinius pažymius arba vieno studento galutinį pažymį su skaičiumi.
