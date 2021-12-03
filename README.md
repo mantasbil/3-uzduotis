@@ -24,3 +24,13 @@ Rūšiavimo laikai:
 | Class | 0.0042335 s | 0.0451156 s |
 
 Rūšiavimas buvo šiek tiek greitesnis naudojant klasę.
+
+Rūšiavimo laikai naudojant optimizavimo flag'us:
+
+| Flag | 100000 | 1000000 |
+| :---: | :---: | :---: |
+| O1 | 0.0058978 s | 0.0578741 s |
+| O2 | 0.0036810 s | 0.0391912 s |
+| O3 | 0.0054734 s | 0.0491017 s |
+
+Rūšiavimas buvo greičiausias naudojant O2 flag'ą.
