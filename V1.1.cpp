@@ -92,7 +92,7 @@ int main()
             string eil, item;
             std::stringstream buff;
             ifstream open_f("kursiokai.txt");
-            
+
             try {
                 if (open_f.fail()) throw std::runtime_error("Nepavyko atidaryti failo");
             }
@@ -113,10 +113,10 @@ int main()
                         stringstream ss(eil);
                         while (ss >> item) cols++;
                     }
-                    temp_student.readStudent(buff, cols-3);
+                    temp_student.readStudent(buff, cols - 3);
                     gal = galutinis(temp_student, galutinis_type);
                     temp_student.setGalutinis(gal);
-                    grupe.push_back(temp_student); 
+                    grupe.push_back(temp_student);
                 }
                 else break;
             }
