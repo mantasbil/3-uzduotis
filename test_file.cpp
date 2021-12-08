@@ -14,6 +14,7 @@ using std::to_string;
 using std::ofstream;
 using std::ifstream;
 using std::vector;
+using std::list;
 
 void create_file(int kiekis)
 {
@@ -72,12 +73,13 @@ void test(int kiekis)
     {
         i.readStudent(buff);
     }
+    
     auto end1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff1 = end1 - start1;
     cout << "Failo su " << kiekis << " studentu nuskaitymas uztruko " << diff1.count() << " s" << endl;
 
     vector<Studentas> vargsiukai;
-    std::sort(studentai.begin(), studentai.end(), compare_mark);
+    std::sort(studentai.begin(), studentai.end());
     auto start2 = std::chrono::high_resolution_clock::now();
     vector<Studentas>::iterator it = std::find_if(studentai.begin(), studentai.end(), islaike);
     vargsiukai = vector<Studentas>(studentai.begin(), it);

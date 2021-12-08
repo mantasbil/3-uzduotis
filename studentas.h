@@ -8,16 +8,17 @@
 using std::string;
 using std::vector;
 
-/*struct studentas
-{
-    std::string vardas, pavarde;
-    int nd_kiek;
-    std::vector <float> nd;
-    float egz;
-    float galutinis_vid, galutinis_med;
-};*/
+class Zmogus {
+    protected:
+        string vardas;
+        string pavarde;
+    public:
+        Zmogus() {};
+        virtual const string getVardas() const = 0;
+        virtual const string getPavarde() const = 0;
+};
 
-class Studentas {
+class Studentas : public Zmogus {
     private:
         std::string vardas;
         std::string pavarde;
@@ -25,9 +26,12 @@ class Studentas {
         std::vector<double> nd;
         double galutinis;
     public:
-        Studentas() : egzaminas(0) {};
-        const string getVardas() const { return vardas; }
-        const string getPavarde() const { return pavarde; }
+        Studentas() {};
+        ~Studentas() {};
+        Studentas(const Studentas& s);
+        Studentas& operator=(const Studentas& s);
+        const string getVardas() const override { return vardas; }
+        const string getPavarde() const override { return pavarde; }
         double getEgzaminas() const { return egzaminas; }
         const vector<double> getNd() const { return nd; }
         double getGalutinis() const { return galutinis; }
@@ -36,8 +40,56 @@ class Studentas {
         void setEgzaminas(double e) { egzaminas = e; }
         void setNd(vector<double> n) { nd = n; }
         void setGalutinis(double g) { galutinis = g; }
-        std::istream& readStudent(std::istream& in, int n);
-        std::istream& readStudent(std::istream& in);
+        std::istream& readStudent(std::istream&, int);
+        std::istream& readStudent(std::istream&);
+
+        bool operator<(const Studentas& s) const {
+            return galutinis < s.galutinis;
+        }
+
+        bool operator>(const Studentas& s) const {
+            return galutinis > s.galutinis;
+        }
+
+        bool operator<=(const Studentas& s) const {
+            return galutinis <= s.galutinis;
+        }
+
+        bool operator>=(const Studentas& s) const {
+            return galutinis >= s.galutinis;
+        }
+
+        bool operator==(const Studentas& s) const {
+            return galutinis == s.galutinis;
+        }
+
+        bool operator!=(const Studentas& s) const {
+            return galutinis != s.galutinis;
+        }
+
+        bool operator<(const double x) const {
+            return galutinis < x;
+        }
+
+        bool operator>(const double x) const {
+            return galutinis > x;
+        }
+
+        bool operator<=(const double x) const {
+            return galutinis <= x;
+        }
+
+        bool operator>=(const double x) const {
+            return galutinis >= x;
+        }
+
+        bool operator==(const double x) const {
+            return galutinis == x;
+        }
+
+        bool operator!=(const double x) const {
+            return galutinis != x;
+        }
 };
 
 double vidurkis(vector<double>);

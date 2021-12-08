@@ -9,6 +9,15 @@ using std::left;
 using std::fixed;
 using std::setprecision;
 
+
+Studentas::Studentas(const Studentas& s) {
+	vardas = s.vardas;
+	pavarde = s.pavarde;
+	nd = s.nd;
+	egzaminas = s.egzaminas;
+	galutinis = s.galutinis;
+}
+
 std::istream& Studentas::readStudent(std::istream& in, int n) {
 	int paz;
 	Studentas stud;
@@ -36,13 +45,23 @@ std::istream& Studentas::readStudent(std::istream& in) {
 	return in;
 }
 
+Studentas& Studentas::operator=(const Studentas& s) {
+	if (&s == this) return *this;
+	vardas = s.vardas;
+	pavarde = s.pavarde;
+	nd = s.nd;
+	egzaminas = s.egzaminas;
+	galutinis = s.galutinis;
+	return *this;
+}
+
 double vidurkis(vector<double> pazymiai) {
-	if (pazymiai.size() == 0) throw std::domain_error("Namu darbu kiekis turi buti didesnis uz 0");
+	if (pazymiai.size() == 0) throw std::exception("Namu darbu kiekis turi buti didesnis uz 0");
 	return std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0) / pazymiai.size();
 }
 
 double mediana(vector<double> pazymiai) {
-	if (pazymiai.size() == 0) throw std::domain_error("Namu darbu kiekis turi buti didesnis uz 0");
+	if (pazymiai.size() == 0) throw std::exception("Namu darbu kiekis turi buti didesnis uz 0");
 	float median;
 	int n = pazymiai.size();
 	std::sort(pazymiai.begin(), pazymiai.end());
@@ -79,10 +98,6 @@ void student_print(vector<Studentas> grupe) {
 	}
 }
 
-bool compare_mark(const Studentas& a, const Studentas& b) {
-	return a.getGalutinis() < b.getGalutinis();
-}
-
 bool islaike(const Studentas& a) {
-	return a.getGalutinis() >= 5;
+	return a >= 5;
 }
