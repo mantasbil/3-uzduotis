@@ -137,3 +137,8 @@ Rūšiavimas buvo greičiausias naudojant Ox flag'ą, .exe failas buvo mažiausi
 
 - Pridėta abstrakti klasė "Zmogus".
 - Klasė "Studentas" realizuota kaip išvestinė klasė iš klasės "Zmogus".
+
+## v2.0
+
+- Sukurta dokumentacija su Doxygen.
+- Atlikti Google unit testai.
