@@ -1,6 +1,6 @@
 # Visos programos veikimas
 
-1. Pasirenkama, matuojama failo nuskaitymo ir duomenų surūšiavimo į dvi grupes sparta. Jei taip, įvedamas norimas duomenų kiekis, programa nuskaito atitinkamai pavadintą failą su nurodytu skaičiumi studentų (faile saugomi studento vardas, pavardė ir galutinis balas), jį nuskaito. Į ekraną išvedamas failo nuskaitymo laikas.
+1. Pasirenkama, matuojama failo nuskaitymo ir duomenų surūšiavimo į dvi grupes sparta. Jei taip, įvedamas norimas duomenų kiekis, programa nuskaito atitinkamai pavadintą failą su nurodytu skaičiumi studentų (faile saugomi studento vardas, pavardė, 5 namų darbų pažymiai ir egzamino rezultatas), jį nuskaito, galutinį balą apskaičiuoja pagal visurkį. Į ekraną išvedamas failo nuskaitymo laikas.
 2. Studentai, su mažesniu už 5 galutiniu pažymiu, perkeliami į vektorių 'vargsiukai' ir ištrinami iš pradinio konteinerio. Į ekraną išvedamas studentų dalijimo į atskiras grupes laikas. Surūšiuoti duomenys išvedami į du atskirus failus.
 3. Jei pasirenkama nematuoti spartos, prašoma pasirinkti, ar duomenys bus nuskaitomi iš failo, ar įvedami ranka.
 4. Jei pasirenkamas nuskaitymas iš failo, duomenys nuskaitomi iš failo, kurio pavadinimas privalo būti "kursiokai.txt" ir kuris privalo būti patalpintas toje pačioje direktorijoje kaip ir programa. Jei toks failas randamas, duomenys nuskaitomi į vektorių ir dviem būdais suskaičiuojamas galutinis pažymys - pagal namų darbų pažymių vidurkį ir pagal medianą.
