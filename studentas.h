@@ -10,14 +10,14 @@ using std::vector;
 
 class Studentas {
     private:
-        std::string vardas;
-        std::string pavarde;
+        string vardas;
+        string pavarde;
         double egzaminas;
-        std::vector<double> nd;
+        vector<double> nd;
         double galutinis;
     public:
-        Studentas() {};
-        ~Studentas() {};
+        Studentas(): vardas(""), pavarde(""), egzaminas(0) { nd.clear(); };
+        ~Studentas() { nd.clear(); };
         Studentas(const Studentas& s);
         Studentas& operator=(const Studentas& s);
         const string getVardas() const { return vardas; }
@@ -31,8 +31,7 @@ class Studentas {
         void setNd(vector<double> n) { nd = n; }
         void setGalutinis(double g) { galutinis = g; }
         std::istream& readStudent(std::istream&, int);
-        std::istream& readStudent(std::istream&);
-
+        
         bool operator<(const Studentas& s) const {
             return galutinis < s.galutinis;
         }
