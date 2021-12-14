@@ -21,26 +21,26 @@ using std::stringstream;
 int main()
 {
     int kiek;
-    string input_type, galutinis_type, read_type, generate, vardas, pavarde;
+    string input_type, galutinis_type, read_type, testuoti, generate, vardas, pavarde;
     Studentas temp_student;
     vector <Studentas> grupe;
     vector<double> nd;
     double egz, gal;
 
     cout << "Jeigu norite testuoti sparta spauskite T, jei ne - N ";
-    cin >> generate;
+    cin >> testuoti;
     do {
         try {
-            if (generate != "t" && generate != "T" && generate != "n" && generate != "N") throw std::runtime_error("Neatpazinta komanda");
+            if (testuoti != "t" && testuoti != "T" && testuoti != "n" && testuoti != "N") throw std::runtime_error("Neatpazinta komanda");
         }
         catch (std::runtime_error& e) {
             cout << e.what() << endl;
             cin.clear();
             cout << "Pasirinkite T arba N ";
-            cin >> generate;
+            cin >> testuoti;
         }
-    } while (generate != "t" && generate != "T" && generate != "n" && generate != "N");
-    if (generate == "T" || generate == "t")
+    } while (testuoti != "t" && testuoti != "T" && testuoti != "n" && testuoti != "N");
+    if (testuoti == "T" || testuoti == "t")
     {
         cout << "Iveskite studentu skaiciu: ";
         cin >> kiek;
@@ -55,10 +55,25 @@ int main()
                 cin >> kiek;
             }
         } while (kiek <= 0);
-
+        cout << "Jeigu norite sukurti nauja faila spauskite T, jei ne - N";
+        cin >> generate;
+        do {
+            try {
+                if (generate != "t" && generate != "T" && generate != "n" && generate != "N") throw std::runtime_error("Neatpazinta komanda");
+            }
+            catch (std::runtime_error& e) {
+                cout << e.what() << endl;
+                cin.clear();
+                cout << "Pasirinkite T arba N ";
+                cin >> generate;
+            }
+        } while (generate != "t" && generate != "T" && generate != "n" && generate != "N");
+        if (generate == "T" || generate == "t") {
+            create_file(kiek);
+        }
         test(kiek);
     }
-    if (generate == "N" || generate == "n")
+    if (testuoti == "N" || testuoti == "n")
     {
         cout << "Jei norite duomenis nuskaityti is failo spauskite F.\nJei norite ivesti ranka, spauskite R. ";
         cin >> read_type;
