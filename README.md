@@ -93,12 +93,12 @@ Palygintos dvi studentų dalijimo į dvi grupes strategijos:
 
 Rūšiavimo laikai:
 
-| Struktūra | Skirstymo būdas | 1000 | 10000 | 100000 | 1000000 | 10000000 |
-| :-----------: | :---: | :----: | :-----: | :------: | :-------: | :--------: |
-| Vector | 1 | 0.0000706 s | 0.0008961 s | 0.0057949 s | 0.0535999 s | 0.5808936 s |
-| Vector | 2 | 0.0000555 s | 0.0004618 s | 0.0044573 s | 0.0521368 s | 0.437237 s |
-| List | 1 | 0.0003194 s | 0.0027364 s | 0.0259439 s | 0.2712942 s | 2.859808 s |
-| List | 2 | 0.0001270 s | 0.0009704 s | 0.0188149 s | 0.2496906 s | 2.796786 s |
+| Struktūra | Skirstymo būdas | 1000 | 10000 | 100000 | 1000000 |
+| :-----------: | :---: | :----: | :-----: | :------: | :-------: |
+| Vector | 1 | 0.0001286 s | 0.0012209 s | 0.0161831 s | 0.109606 s |
+| Vector | 2 | 0.0000822 s | 0.0007826 s | 0.0103293 s | 0.102109 s |
+| List | 1 | 0.0003623 s | 0.0051881 s | 0.0307612 s | 0.379875 s |
+| List | 2 | 0.0001403 s | 0.0019821 s | 0.0210013 s | 0.262861 s |
 
 Skirstant studentas 2-a strategija buvo pasiekti šiek tiek geresni rezultatai.
 
@@ -111,17 +111,17 @@ Rūšiavimo laikai:
 
 | | 100000 | 1000000 |
 | :---: | :---: | :---: |
-| Struct | 0.0044573 s | 0.0521368 s |
-| Class | 0.0042335 s | 0.0451156 s |
+| Struct | 0.0103293 s | 0.102109 s |
+| Class | 0.0157157 s | 0.217854 s |
 
-Rūšiavimas buvo šiek tiek greitesnis naudojant klasę.
+Rūšiavimas buvo šiek tiek greitesnis naudojant struktūrą.
 
 Rūšiavimo laikai naudojant optimizavimo flag'us:
 
-| Flag | 100000 | 1000000 |
-| :---: | :---: | :---: |
-| O1 | 0.0058978 s | 0.0578741 s |
-| O2 | 0.0036810 s | 0.0391912 s |
-| O3 | 0.0054734 s | 0.0491017 s |
+| Flag | 100000 | 1000000 | .exe failo dydis |
+| :---: | :---: | :---: | :---: |
+| O1 | 0.0181291 s | 0.224484 s | 52.0 KB |
+| O2 | 0.0157157 s | 0.217854 s | 64.5 KB |
+| Ox | 0.0151428 s | 0.184948 s | 65.0 KB |
 
-Rūšiavimas buvo greičiausias naudojant O2 flag'ą.
+Rūšiavimas buvo greičiausias naudojant Ox flag'ą, .exe failas buvo mažiausias naudojant O2 flag'ą. 
