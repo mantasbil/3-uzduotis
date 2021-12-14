@@ -1,13 +1,15 @@
 # Visos programos veikimas
 
-1. Pasirenkama, matuojama failo nuskaitymo ir duomenų surūšiavimo į dvi grupes sparta. Jei taip, įvedamas norimas duomenų kiekis, programa nuskaito atitinkamai pavadintą failą su nurodytu skaičiumi studentų (faile saugomi studento vardas, pavardė, 5 namų darbų pažymiai ir egzamino rezultatas), jį nuskaito, galutinį balą apskaičiuoja pagal visurkį. Į ekraną išvedamas failo nuskaitymo laikas.
-2. Studentai, su mažesniu už 5 galutiniu pažymiu, perkeliami į vektorių 'vargsiukai' ir ištrinami iš pradinio konteinerio. Į ekraną išvedamas studentų dalijimo į atskiras grupes laikas. Surūšiuoti duomenys išvedami į du atskirus failus.
-3. Jei pasirenkama nematuoti spartos, prašoma pasirinkti, ar duomenys bus nuskaitomi iš failo, ar įvedami ranka.
-4. Jei pasirenkamas nuskaitymas iš failo, duomenys nuskaitomi iš failo, kurio pavadinimas privalo būti "kursiokai.txt" ir kuris privalo būti patalpintas toje pačioje direktorijoje kaip ir programa. Jei toks failas randamas, duomenys nuskaitomi į vektorių ir dviem būdais suskaičiuojamas galutinis pažymys - pagal namų darbų pažymių vidurkį ir pagal medianą.
-5. Jei pasirenkamas įvedimas ranka, prašoma pasirinkti, ar namų darbų ir egzamino pažymiai bus įvedami ranka, ar generuojami automatiškai.
-6. Abiem atvejais įvedamas studentų kiekis; Prašoma įvesti studento vardą ir pavardę. Pasirinkus automatinį generavimą kiekvienam studentui reikia įvesti namų darbų pažymių kiekį, pasirinkus rankinį įvedimą veiksmas stabdomas įvedus bet kokį simbolį, kuris nėra skaičius. Abiem atvejais kiekvieno studento galutinis pažymys suskaičiuojamas dviem būdais - pagal namų darbų pažymių vidurkį ir pagal medianą.
-7. Prašoma pasirinkti, kokio tipo galutinis balas bus išvedamas į ekraną.
-8. Į ekraną išvedamas studentų sąrašas, surūšiuotas abėcėlės tvarka pagal pavardes, su pasirinkto tipo galutiniais pažymiais.
+1. Pasirenkama, ar bus matuojama failo nuskaitymo ir duomenų surūšiavimo į dvi grupes sparta. Jei taip, įvedamas studentų kiekis.
+2. Pasirenkama, ar bus generuojami nauji failai testavimui, ar ne. Jei taip, įvedama, kiek namų darbų priskirti studentui. Sukurtas failas ištestuojamas taip pat, kaip aprašyta trečiame žingsnyje.
+3. Jei negenuorajamas naujas failas, programa nuskaito jau egzistuojantį atitinkamai pavadintą failą su nurodytu skaičiumi studentų (iki 1.0 versijos testavimui naudoti failai, kuriuose buvo saugoma vardas, pavardė ir galutinis balas, nuo 1.0 versijos naudojami failai, kuriuose saugoma vardas, pavardė, 5 namų darbų įvertinimai ir egzamino įvertinimas, galutinis pažymys apskaičiuojamas pagal vidurkį). Į ekraną išvedamas failo nuskaitymo laikas.
+4. Studentai, su mažesniu už 5 galutiniu pažymiu, perkeliami į vektorių 'vargsiukai' ir ištrinami iš pradinio konteinerio. Į ekraną išvedamas studentų dalijimo į atskiras grupes laikas. Surūšiuoti duomenys išvedami į du atskirus failus.
+5. Jei pasirenkama nematuoti spartos, prašoma pasirinkti, ar duomenys bus nuskaitomi iš failo, ar įvedami ranka.
+6. Jei pasirenkamas nuskaitymas iš failo, duomenys nuskaitomi iš failo, kurio pavadinimas privalo būti "kursiokai.txt" ir kuris privalo būti patalpintas toje pačioje direktorijoje kaip ir programa. Jei toks failas randamas, duomenys nuskaitomi į vektorių ir dviem būdais suskaičiuojamas galutinis pažymys - pagal namų darbų pažymių vidurkį ir pagal medianą.
+7. Jei pasirenkamas įvedimas ranka, prašoma pasirinkti, ar namų darbų ir egzamino pažymiai bus įvedami ranka, ar generuojami automatiškai.
+8. Abiem atvejais įvedamas studentų kiekis; Prašoma įvesti studento vardą ir pavardę. Pasirinkus automatinį generavimą kiekvienam studentui reikia įvesti namų darbų pažymių kiekį, pasirinkus rankinį įvedimą veiksmas stabdomas įvedus bet kokį simbolį, kuris nėra skaičius. Abiem atvejais kiekvieno studento galutinis pažymys suskaičiuojamas dviem būdais - pagal namų darbų pažymių vidurkį ir pagal medianą.
+9. Prašoma pasirinkti, kokio tipo galutinis balas bus išvedamas į ekraną.
+10. Į ekraną išvedamas studentų sąrašas, surūšiuotas abėcėlės tvarka pagal pavardes, su pasirinkto tipo galutiniais pažymiais.
 
 ## v0.1
 
