@@ -36,14 +36,6 @@ std::istream& Studentas::readStudent(std::istream& in, int n) {
 	return in;
 }
 
-std::istream& Studentas::readStudent(std::istream& in) {
-	Studentas stud;
-	in >> vardas >> pavarde >> galutinis;
-	stud.setVardas(vardas);
-	stud.setPavarde(pavarde);
-	stud.setGalutinis(galutinis);
-	return in;
-}
 
 Studentas& Studentas::operator=(const Studentas& s) {
 	if (&s == this) return *this;

@@ -13,20 +13,20 @@ class Zmogus {
         string vardas;
         string pavarde;
     public:
-        Zmogus() {};
+        Zmogus(): vardas(""), pavarde("") {};
         virtual const string getVardas() const = 0;
         virtual const string getPavarde() const = 0;
 };
 
 class Studentas : public Zmogus {
     private:
-        std::string vardas;
-        std::string pavarde;
+        string vardas;
+        string pavarde;
         double egzaminas;
-        std::vector<double> nd;
+        vector<double> nd;
         double galutinis;
     public:
-        Studentas() {};
+        Studentas() : Zmogus(), egzaminas(0) { nd.clear(); };
         ~Studentas() {};
         Studentas(const Studentas& s);
         Studentas& operator=(const Studentas& s);
@@ -41,7 +41,6 @@ class Studentas : public Zmogus {
         void setNd(vector<double> n) { nd = n; }
         void setGalutinis(double g) { galutinis = g; }
         std::istream& readStudent(std::istream&, int);
-        std::istream& readStudent(std::istream&);
 
         bool operator<(const Studentas& s) const {
             return galutinis < s.galutinis;
