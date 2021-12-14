@@ -8,24 +8,16 @@
 using std::string;
 using std::vector;
 
-/*struct studentas
-{
-    std::string vardas, pavarde;
-    int nd_kiek;
-    std::vector <float> nd;
-    float egz;
-    float galutinis_vid, galutinis_med;
-};*/
 
 class Studentas {
     private:
-        std::string vardas;
-        std::string pavarde;
+        string vardas;
+        string pavarde;
         double egzaminas;
-        std::vector<double> nd;
+        vector<double> nd;
         double galutinis;
     public:
-        Studentas() : egzaminas(0) {};
+        Studentas() : vardas(""), pavarde(""), egzaminas(0) { nd.clear(); };
         const string getVardas() const { return vardas; }
         const string getPavarde() const { return pavarde; }
         double getEgzaminas() const { return egzaminas; }
@@ -37,7 +29,6 @@ class Studentas {
         void setNd(vector<double> n) { nd = n; }
         void setGalutinis(double g) { galutinis = g; }
         std::istream& readStudent(std::istream& in, int n);
-        std::istream& readStudent(std::istream& in);
 };
 
 double vidurkis(vector<double>);

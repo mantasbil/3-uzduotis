@@ -17,20 +17,25 @@ using std::vector;
 
 void create_file(int kiekis)
 {
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_real_distribution<double> dist(1., 10.);
-    double galutinis_random;
-
+    int n;
+    std::cout << "Iveskite namu darbu kieki";
+    std::cin >> n;
     string file_name = "Studentai" + to_string(kiekis) + ".txt";
     ofstream outfile(file_name);
-    outfile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde" << left << setw(15) << "Galutinis" << endl;
+    outfile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
+    for (int x = 1; x <= n; x++) {
+        outfile << left << setw(5) << "ND" + to_string(x);
+    }
+    outfile << left << setw(5) << "Egz" << endl;
     for (int i = 1; i <= kiekis; i++)
     {
-        galutinis_random = dist(mt);
         outfile << left << setw(20) << "Vardas" + to_string(i)
-            << left << setw(20) << "Pavarde" + to_string(i)
-            << left << setw(20) << fixed << setprecision(2) << galutinis_random << endl;
+            << left << setw(20) << "Pavarde" + to_string(i);
+        for (int j = 1; j <= n + 1; j++)
+        {
+            outfile << left << setw(5) << rand_int();
+        }
+        outfile << endl;
     }
 }
 
@@ -49,11 +54,12 @@ void write(vector<Studentas>& v, string file_name)
 void test(int kiekis)
 {
     cout << endl;
-    cout << "Vector strukturos rezultatai:" << endl;
+    cout << "Rezultatai:" << endl;
     auto start1 = std::chrono::high_resolution_clock::now();
     Studentas temp;
     vector<Studentas> studentai;
-    string vard, pav;
+    string vard, pav, item;
+    int rows=0, cols=0;
     studentai.resize(kiekis);
     string eil;
     ifstream openf("Studentai" + to_string(kiekis) + ".txt");
@@ -68,9 +74,16 @@ void test(int kiekis)
     buff << openf.rdbuf();
     openf.close();
     getline(buff, eil);
+    rows++;
+    if (rows == 1)
+    {
+        std::stringstream ss(eil);
+        while (ss >> item) cols++;
+    }
     for (auto& i : studentai)
     {
-        i.readStudent(buff);
+        i.readStudent(buff, cols-3);
+        i.setGalutinis(galutinis(i, "v"));
     }
     auto end1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff1 = end1 - start1;
