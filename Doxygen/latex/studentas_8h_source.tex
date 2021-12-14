@@ -1,0 +1,107 @@
+\hypertarget{studentas_8h_source}{}\doxysection{studentas.\+h}
+\label{studentas_8h_source}\index{V2.0/studentas.h@{V2.0/studentas.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include<iomanip>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using} std::string;}
+\DoxyCodeLine{9 \textcolor{keyword}{using} std::vector;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_zmogus}{Zmogus}} \{}
+\DoxyCodeLine{12     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{13         \textcolor{keywordtype}{string} vardas;}
+\DoxyCodeLine{14         \textcolor{keywordtype}{string} pavarde;}
+\DoxyCodeLine{15     \textcolor{keyword}{public}:}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_zmogus}{Zmogus}}(): vardas(\textcolor{stringliteral}{"{}"{}}), pavarde(\textcolor{stringliteral}{"{}"{}}) \{\};}
+\DoxyCodeLine{17         \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{string} getVardas() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{18         \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{string} getPavarde() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_studentas}{Studentas}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_zmogus}{Zmogus}} \{}
+\DoxyCodeLine{22     \textcolor{keyword}{private}:}
+\DoxyCodeLine{23         \textcolor{keywordtype}{string} vardas;}
+\DoxyCodeLine{24         \textcolor{keywordtype}{string} pavarde;}
+\DoxyCodeLine{25         \textcolor{keywordtype}{double} egzaminas;}
+\DoxyCodeLine{26         vector<double> nd;}
+\DoxyCodeLine{27         \textcolor{keywordtype}{double} galutinis;}
+\DoxyCodeLine{28     \textcolor{keyword}{public}:}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_studentas}{Studentas}}() : \mbox{\hyperlink{class_zmogus}{Zmogus}}(), egzaminas(0) \{ nd.clear(); \};}
+\DoxyCodeLine{30         \mbox{\hyperlink{class_studentas}{\string~Studentas}}() \{\};}
+\DoxyCodeLine{31         \mbox{\hyperlink{class_studentas}{Studentas}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s);}
+\DoxyCodeLine{32         \mbox{\hyperlink{class_studentas}{Studentas}}\& operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s);}
+\DoxyCodeLine{33         \textcolor{keyword}{const} \textcolor{keywordtype}{string} getVardas()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} vardas; \}}
+\DoxyCodeLine{34         \textcolor{keyword}{const} \textcolor{keywordtype}{string} getPavarde()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} pavarde; \}}
+\DoxyCodeLine{35         \textcolor{keywordtype}{double} getEgzaminas()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} egzaminas; \}}
+\DoxyCodeLine{36         \textcolor{keyword}{const} vector<double> getNd()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} nd; \}}
+\DoxyCodeLine{37         \textcolor{keywordtype}{double} getGalutinis()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} galutinis; \}}
+\DoxyCodeLine{38         \textcolor{keywordtype}{void} setVardas(\textcolor{keywordtype}{string} v) \{ vardas = v; \}}
+\DoxyCodeLine{39         \textcolor{keywordtype}{void} setPavarde(\textcolor{keywordtype}{string} p) \{ pavarde = p; \}}
+\DoxyCodeLine{40         \textcolor{keywordtype}{void} setEgzaminas(\textcolor{keywordtype}{double} e) \{ egzaminas = e; \}}
+\DoxyCodeLine{41         \textcolor{keywordtype}{void} setNd(vector<double> n) \{ nd = n; \}}
+\DoxyCodeLine{42         \textcolor{keywordtype}{void} setGalutinis(\textcolor{keywordtype}{double} g) \{ galutinis = g; \}}
+\DoxyCodeLine{43         std::istream\& readStudent(std::istream\&, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{46             \textcolor{keywordflow}{return} galutinis < s.galutinis;}
+\DoxyCodeLine{47         \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{keywordtype}{bool} operator>(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{50             \textcolor{keywordflow}{return} galutinis > s.galutinis;}
+\DoxyCodeLine{51         \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{keywordtype}{bool} operator<=(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{54             \textcolor{keywordflow}{return} galutinis <= s.galutinis;}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordtype}{bool} operator>=(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{58             \textcolor{keywordflow}{return} galutinis >= s.galutinis;}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{62             \textcolor{keywordflow}{return} galutinis == s.galutinis;}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\& s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{66             \textcolor{keywordflow}{return} galutinis != s.galutinis;}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \textcolor{keywordtype}{double} x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{70             \textcolor{keywordflow}{return} galutinis < x;}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \textcolor{keywordtype}{bool} operator>(\textcolor{keyword}{const} \textcolor{keywordtype}{double} x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{74             \textcolor{keywordflow}{return} galutinis > x;}
+\DoxyCodeLine{75         \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         \textcolor{keywordtype}{bool} operator<=(\textcolor{keyword}{const} \textcolor{keywordtype}{double} x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{78             \textcolor{keywordflow}{return} galutinis <= x;}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \textcolor{keywordtype}{bool} operator>=(\textcolor{keyword}{const} \textcolor{keywordtype}{double} x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{82             \textcolor{keywordflow}{return} galutinis >= x;}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \textcolor{keywordtype}{double} x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{86             \textcolor{keywordflow}{return} galutinis == x;}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \textcolor{keywordtype}{double} x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{90             \textcolor{keywordflow}{return} galutinis != x;}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92 \};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keywordtype}{double} vidurkis(vector<double>);}
+\DoxyCodeLine{95 \textcolor{keywordtype}{double} mediana(vector<double>);}
+\DoxyCodeLine{96 \textcolor{keywordtype}{bool} compare\_alphabet(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\&);}
+\DoxyCodeLine{97 \textcolor{keywordtype}{bool} is\_alphabetic(\textcolor{keywordtype}{string});}
+\DoxyCodeLine{98 \textcolor{keywordtype}{void} student\_print(vector<Studentas>);}
+\DoxyCodeLine{99 \textcolor{keywordtype}{bool} compare\_mark(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\&);}
+\DoxyCodeLine{100 \textcolor{keywordtype}{bool} islaike(\textcolor{keyword}{const} \mbox{\hyperlink{class_studentas}{Studentas}}\&);}
+\DoxyCodeLine{101 \textcolor{keywordtype}{double} galutinis(\mbox{\hyperlink{class_studentas}{Studentas}}, \textcolor{keywordtype}{string});}
+
+\end{DoxyCode}
