@@ -72,6 +72,7 @@ int main()
             create_file(kiek);
         }
         test(kiek);
+        
     }
     if (testuoti == "N" || testuoti == "n")
     {
@@ -263,6 +264,6 @@ int main()
         student_print(grupe);
     }
     
-    cin.get();
+    system("PAUSE");
 
 }
