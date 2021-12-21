@@ -145,5 +145,5 @@ Rūšiavimas buvo greičiausias naudojant Ox flag'ą, .exe failas buvo mažiausi
 
 ## v3.0
 
-- Sukurtas programos diegimo failas. Jis patalpintas aplanke 'Release'.
+- Naudojant v1.5 versiją sukurtas programos diegimo failas. Jis patalpintas aplanke 'Release'.
 - Norint testuoti studentų rūšiavimo spartą, failai turi būti patalpinti toje pačioje direktorijoje kaip ir įdiegta programa.
