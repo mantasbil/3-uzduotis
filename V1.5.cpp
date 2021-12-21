@@ -21,7 +21,7 @@ using std::stringstream;
 int main()
 {
     int kiek;
-    string input_type, galutinis_type, read_type, testuoti, generate, vardas, pavarde;
+    string input_type, galutinis_type, read_type, testuoti, vardas, pavarde;
     Studentas temp_student;
     vector <Studentas> grupe;
     vector<double> nd;
@@ -55,22 +55,7 @@ int main()
                 cin >> kiek;
             }
         } while (kiek <= 0);
-        cout << "Jeigu norite sukurti nauja faila spauskite T, jei ne - N";
-        cin >> generate;
-        do {
-            try {
-                if (generate != "t" && generate != "T" && generate != "n" && generate != "N") throw std::runtime_error("Neatpazinta komanda");
-            }
-            catch (std::runtime_error& e) {
-                cout << e.what() << endl;
-                cin.clear();
-                cout << "Pasirinkite T arba N ";
-                cin >> generate;
-            }
-        } while (generate != "t" && generate != "T" && generate != "n" && generate != "N");
-        if (generate == "T" || generate == "t") {
-            create_file(kiek);
-        }
+        
         test(kiek);
         
     }
